@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Furkan Canturk | Game Developer Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #f0f0f0;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background-color: rgba(15, 15, 15, 0.95);
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    }
+
+    header h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3rem;
+      color: #00ffd5;
+    }
+
+    nav {
+      margin-top: 1rem;
+    }
+
+    nav a {
+      color: #ffffff;
+      margin: 0 1.2rem;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #00ffd5;
+    }
+
+    .section {
+      padding: 4rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section h2 {
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
+      color: #00ffd5;
+      text-align: center;
+    }
+
+    .projects, .assets, .works {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .item {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 15px;
+      padding: 1.5rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0, 255, 213, 0.3);
+    }
+
+    .item h3 {
+      margin-bottom: 0.75rem;
+      color: #00ffd5;
+    }
+
+    footer {
+      background-color: #101010;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .social-icons {
+      margin-top: 2rem;
+    }
+
+    .social-icons a {
+      margin: 0 0.7rem;
+      display: inline-block;
+      transition: transform 0.2s ease;
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.2);
+    }
+
+    .social-icons img {
+      width: 32px;
+      height: 32px;
+      filter: brightness(0) invert(1);
+    }
+
+    .description {
+      margin-top: 2rem;
+      font-size: 1rem;
+      color: #cccccc;
+    }
+
+    .contact-section {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .contact-section form {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact-section input,
+    .contact-section textarea {
+      padding: 0.8rem;
+      border-radius: 8px;
+      border: none;
+      font-size: 1rem;
+    }
+
+    .contact-section button {
+      padding: 0.8rem;
+      border: none;
+      border-radius: 8px;
+      background-color: #00ffd5;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .contact-section button:hover {
+      background-color: #00cbb5;
+    }
+
+    .download-links {
+      margin: 2rem auto;
+      text-align: center;
+    }
+
+    .download-links a {
+      display: inline-block;
+      margin: 0.5rem;
+      color: #00ffd5;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      .section {
+        padding: 2rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Furkan Canturk</h1>
+    <nav>
+      <a href="#projects">Projects</a>
+      <a href="#assets">Assets</a>
+      <a href="#works">Other Works</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="projects" class="section">
+    <h2>Game Projects</h2>
+    <div class="projects">
+      <div class="item">
+        <h3>Star Excavator</h3>
+        <p>A resource automation game where players manage excavators to mine and deliver ores, ultimately seeking the rare 'Star Ore'.</p>
+      </div>
+      <div class="item">
+        <h3>Social Order</h3>
+        <p>A multiplayer top-down strategy game set in a war-torn city where players experience class-based roles and conflicts.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="assets" class="section">
+    <h2>Game Assets</h2>
+    <div class="assets">
+      <div class="item">
+        <h3>Rulnarite Logo Pack</h3>
+        <p>A futuristic fantasy logo asset designed for sci-fi indie game developers.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="works" class="section">
+    <h2>Other Works</h2>
+    <div class="works">
+      <div class="item">
+        <h3>Roots & Rewards</h3>
+        <p>A strategic board game combining homesteading, crop growth, and inventory combat mechanics.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="download-links">
+    <h2>Downloads</h2>
+    <a href="Furkan_Canturk_CV.pdf" download>Download CV (PDF)</a>
+    <a href="Furkan_Portfolio_Pack.zip" download>Download Portfolio Pack (ZIP)</a>
+  </section>
+
+  <section id="contact" class="contact-section">
+    <h2>Contact Me</h2>
+    <form action="https://formspree.io/f/your-form-id" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <div class="description">
+      <p>I’m Furkan Canturk, a passionate game designer and interactive systems thinker. My work explores how narrative, systems, and player choice converge to craft meaningful digital worlds.</p>
+    </div>
+    <div class="social-icons">
+      <a href="https://github.com/furkancanturk" target="_blank">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub">
+      </a>
+      <a href="https://twitter.com/furkancanturk" target="_blank">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitter.svg" alt="Twitter">
+      </a>
+      <a href="https://frkncx.itch.io/" target="_blank">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" alt="Itch.io">
+      </a>
+      <a href="https://linkedin.com/in/furkancanturk" target="_blank">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn">
+      </a>
+    </div>
+  </footer>
+</body>
+</html>
