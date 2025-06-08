@@ -5,4 +5,4 @@ This site showcases my game development projects, original assets, board game de
 
 ## 🌐 Live Website
 
-Visit it here: [[https://furkancanturk.github.io](https://furkancanturk.github.io)](https://frkncx.github.io/furkancanturk.github.io/)
+Visit it here: [[https://frkncx.github.io]
