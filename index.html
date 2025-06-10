@@ -37,6 +37,12 @@
             height: 120px;
         }
 
+        .mobile-logo {
+            display: none;
+            height: 60px;
+            margin-bottom: 10px;
+        }
+
         .center-content {
             text-align: center;
             width: 100%;
@@ -179,12 +185,24 @@
                 margin-top: 0;
                 color: #4FC3F7;
             }
+
+        @media (max-width: 768px) {
+            .logo {
+                display: none;
+            }
+
+            .mobile-logo {
+                display: block;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="header-wrapper">
             <img src="logo.png" alt="Logo" class="logo">
+            <img src="logo.png" alt="Logo" class="mobile-logo">
+
             <div class="center-content">
                 <h1>Furkan Canturk</h1>
                 <nav>
