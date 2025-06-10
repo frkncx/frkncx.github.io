@@ -19,7 +19,27 @@
             background: #000;
             color: white;
             padding: 20px;
+            font-size: 1.2em;
             text-align: center;
+        }
+
+        .header-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            position: relative;
+        }
+
+        .logo {
+            position: absolute;
+            left: 0px;
+            height: 120px;
+        }
+
+        .center-content {
+            text-align: center;
+            width: 100%;
         }
 
         nav a {
@@ -163,20 +183,25 @@
 </head>
 <body>
     <header>
-        <h1>Furkan Canturk</h1>
-        <nav>
-            <a href="#projects">Projects</a>
-            <a href="#assets">Assets</a>
-            <a href="#works">Other Works</a>
-            <a href="#aboutme">About Me</a>
-            <a href="#contact">Contact</a>
-        </nav>
+        <div class="header-wrapper">
+            <img src="logo.png" alt="Logo" class="logo">
+            <div class="center-content">
+                <h1>Furkan Canturk</h1>
+                <nav>
+                    <a href="#projects">Projects</a>
+                    <a href="#assets">Assets</a>
+                    <a href="#works">Other Works</a>
+                    <a href="#aboutme">About Me</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+            </div>
+        </div>
     </header>
 
     <section class="top-section">
         <div class="top-description">
             <p style="max-width: 1000px; margin: 0 auto 20px; font-size: 1.15em; font-family: 'Merriweather', serif;">
-                Hello there! I am Furkan Canturk, a dedicated and creative game designer with a deep interest in game design, digital art, narrative systems, and creating stuff for fun. I love making projects come to life, whether that's video games, board games, or simple art.
+                Hello there! I am Furkan Canturk, a dedicated and creative game designer with a deep interest in creating games, digital art, narrative systems, and creating stuff for fun. I love making projects come to life, whether that's video games, board games, or simple art.
             </p>
         </div>
         <div class="contact-info-top">
@@ -236,7 +261,7 @@
                     <img src="CharacterDesign/ZeminiEmperorOutline.png" alt="Character Outline" style="width: 248px; border-radius: 16px;">
                     <img src="CharacterDesign/FurkanCanturk_ZeminiEmperor.png" alt="Zemini Emperor" style="width: 248px; border-radius: 16px;">
                 </div>
-                <p>2D Character Design Sample</p>
+                <p>2D Character Artwork: Sketch-Outline-Complete</p>
             </div>
             <div class="item">
                 <h3>Work 2</h3>
