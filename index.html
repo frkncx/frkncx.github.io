@@ -61,12 +61,6 @@
             cursor: pointer;
         }
 
-            .zoom-hover:hover {
-                transform: scale(1.5);
-                z-index: 2;
-                box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-            }
-
         nav a {
             margin: 0 15px;
             text-decoration: none;
@@ -210,6 +204,7 @@
                 color: #4FC3F7;
             }
 
+        /* Only works with Max width of 768px devices */
         @media (max-width: 768px) {
             .logo {
                 display: none;
@@ -222,11 +217,12 @@
             }
         }
 
+        /* Only works with mine width of 768px devices */
         @media (min-width: 768px) {
             .zoom-hover:hover {
-                transform: scale(1.2);
+                transform: scale(1.5);
                 z-index: 2;
-                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+                box-shadow: 0 8px 20px rgba(0,0,0,0.4);
             }
         }
 
