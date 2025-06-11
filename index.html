@@ -56,6 +56,17 @@
             width: 100%;
         }
 
+        .zoom-hover {
+            transition: transform 0.4s ease;
+            cursor: pointer;
+        }
+
+            .zoom-hover:hover {
+                transform: scale(1.5);
+                z-index: 2;
+                box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            }
+
         nav a {
             margin: 0 15px;
             text-decoration: none;
@@ -118,6 +129,11 @@
             border-radius: 8px;
             scroll-snap-align: start;
         }
+
+            .item img {
+                display: block;
+                margin: 0 auto;
+            }
 
         .download-links, .aboutme-section {
             text-align: center;
@@ -207,7 +223,8 @@
         }
     </style>
 </head>
-<body>
+<body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
+
     <header>
         <img src="logo.png" alt="Logo" class="mobile-logo">
         <div class="header-wrapper">
@@ -285,14 +302,21 @@
             <div class="item">
                 <h3>Character Design</h3>
                 <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-                    <img src="CharacterDesign/ZeminiEmperorSketch.png" alt="Character Sketch" style="width: 248px; border-radius: 16px;">
-                    <img src="CharacterDesign/ZeminiEmperorOutline.png" alt="Character Outline" style="width: 248px; border-radius: 16px;">
-                    <img src="CharacterDesign/FurkanCanturk_ZeminiEmperor.png" alt="Zemini Emperor" style="width: 248px; border-radius: 16px;">
+                    <img src="CharacterDesign/ZeminiEmperorSketch.png" alt="Character Sketch" class="zoom-hover" style="width: 248px; border-radius: 16px;">
+                    <img src="CharacterDesign/ZeminiEmperorOutline.png" alt="Character Outline" class="zoom-hover" style="width: 248px; border-radius: 16px;">
+                    <img src="CharacterDesign/FurkanCanturk_ZeminiEmperor.png" alt="Zemini Emperor" class="zoom-hover" style="width: 248px; border-radius: 16px;">
                 </div>
                 <p>2D Character Artwork: Sketch-Outline-Complete</p>
             </div>
             <div class="item">
-                <h3>Work 2</h3>
+                <h3>Game Poster</h3>
+                <div style="gap: 10px; justify-content: center;">
+                    <img src="VectorArt.png" alt="Character Sketch" class="zoom-hover" style="width: 280px; border-radius: 16px;">
+                </div>
+                <p>A Game Poster Made with Vector Art using Adobe Photoshop</p>
+            </div>
+            <div class="item">
+                <h3>Work 3</h3>
                 <p>Additional info about other work.</p>
             </div>
         </div>
@@ -301,7 +325,7 @@
     <section class="aboutme-section" id="aboutme">
         <h2>About Me</h2>
         <p style="max-width: 800px; margin: 0 auto 20px; font-size: 1.15em; font-family: 'Merriweather', serif;">
-            </p>
+        </p>
         <h3>Work Experience</h3>
         <p style="max-width: 800px; margin: 0 auto 20px; font-size: 1.15em; font-family: 'Merriweather', serif;">
             To be added...
