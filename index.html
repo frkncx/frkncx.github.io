@@ -61,6 +61,41 @@
             cursor: pointer;
         }
 
+        .hover-container {
+            position: relative;
+            display: inline-block;
+        }
+
+            .hover-container img {
+                transition: filter 0.4s ease;
+                display: block;
+            }
+
+            .hover-container:hover .game-thumbnail {
+                filter: blur(2px);
+            }
+
+        .link-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgb(255, 255, 255);
+            display: none;
+            z-index: 10;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+            .link-icon img {
+                width: 40px;
+                height: 40px;
+            }
+
+        .hover-container:hover .link-icon {
+            display: block;
+        }
+
         nav a {
             margin: 0 15px;
             text-decoration: none;
@@ -258,9 +293,6 @@
             <a href="mailto:furkancbrx2@gmail.com">
                 <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/gmail.svg" alt="Email"> furkancbrx2@gmail.com
             </a>
-            <!-- <a href="https://github.com/frkncx" target="_blank">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub"> @frkncx
-            </a> -->
             <a href="https://www.linkedin.com/in/furkan-canturk-a456b4337/" target="_blank">
                 <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn"> LinkedIn
             </a>
@@ -278,19 +310,25 @@
         <div class="carousel">
             <div class="item">
                 <h3>Artemis</h3>
-                <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-                    <img src="ArtemisThumbnail.png" alt="Game Jam" style="width: 280px; border-radius: 16px;">
+                <div class="hover-container" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                    <img src="ArtemisThumbnail.png" alt="Game Jam" class="game-thumbnail" style="width: 280px; border-radius: 16px;">
+                    <a href="https://frkncx.itch.io/artemis" target="_blank" class="link-icon">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" alt="Itch.io"> Itch.io
+                    </a>
                 </div>
-                <p style="max-width: 320px;">
+                <p style="max-width: 300px;">
                     A 3D Game Jam Dedicated for Enemy AI Implementation Using State Machine Behaviour and Blend Tree
                 </p>
             </div>
             <div class="item">
                 <h3>Haunted Palace</h3>
-                <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-                    <img src="HountedPalaceThumbnail.png" alt="Game Jam" style="width: 280px; border-radius: 16px;">
+                <div class="hover-container" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                    <img src="HountedPalaceThumbnail.png" alt="Game Jam" class="game-thumbnail" style="width: 280px; border-radius: 16px;">
+                    <a href="https://frkncx.itch.io/haunted-palace" target="_blank" class="link-icon">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" alt="Itch.io"> Itch.io
+                    </a>
                 </div>
-                <p style="max-width: 320px;">
+                <p style="max-width: 300px;">
                     A Level Design Project for a 3D Game Jam, where I designed a haunted palace level with various puzzles and challenges.
                 </p>
             </div>
@@ -299,7 +337,7 @@
                 <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
                     <img src="ErebusThumbnail.png" alt="Game Jam" style="width: 280px; border-radius: 16px;">
                 </div>
-                <p style="max-width: 320px;">
+                <p style="max-width: 300px;">
                     A game jam made with Unity URP, featuring a 3D environment with a focus on simulating a microscoping world.
                 </p>
             </div>
@@ -308,7 +346,7 @@
                 <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
                     <img src="ApolloThumbnail.png" alt="Game Jam" style="width: 280px; border-radius: 16px;">
                 </div>
-                <p style="max-width: 320px;">
+                <p style="max-width: 300px;">
                     A game jam made with Unity 2D, that features local multiplayer PVP experience.
                 </p>
             </div>
@@ -403,9 +441,6 @@
             <a href="mailto:furkancbrx2@gmail.com">
                 <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/gmail.svg" alt="Email">
             </a>
-            <!-- <a href="https://github.com/frkncx" target="_blank">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub">
-            </a> -->
             <a href="https://www.linkedin.com/in/furkan-canturk-a456b4337/" target="_blank">
                 <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn">
             </a>
