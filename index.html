@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -66,14 +67,14 @@
             display: inline-block;
         }
 
-            .hover-container img {
-                transition: filter 0.4s ease;
-                display: block;
-            }
+        .hover-container img {
+            transition: filter 0.4s ease;
+            display: block;
+        }
 
-            .hover-container:hover .game-thumbnail {
-                filter: blur(2px);
-            }
+        .hover-container:hover .game-thumbnail {
+            filter: blur(2px);
+        }
 
         .link-icon {
             position: absolute;
@@ -87,20 +88,59 @@
             border-radius: 8px;
         }
 
-            .link-icon img {
-                width: 40px;
-                height: 40px;
-            }
+        .link-icon img {
+            width: 40px;
+            height: 40px;
+        }
 
         .hover-container:hover .link-icon {
             display: block;
         }
 
-        nav a {
-            margin: 0 15px;
+       nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-item {
+            position: relative;
+            margin: 0 15px; 
+        }
+
+        .nav-item > a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+        display: inline-block;
+        padding: 5px 0px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: -8%;
+            background: white;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+            min-width: 150px;
+            z-index: 100;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 10px;
+            color: black;
             text-decoration: none;
-            color: #fff;
-            font-weight: bold;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f0f0f0;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
         }
 
         .top-section {
@@ -122,20 +162,20 @@
             margin-bottom: 20px;
         }
 
-            .contact-info-top a {
-                display: flex;
-                align-items: center;
-                text-decoration: none;
-                color: inherit;
-                font-size: 0.95em;
-            }
+        .contact-info-top a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: inherit;
+            font-size: 0.95em;
+        }
 
-            .contact-info-top img {
-                width: 20px;
-                height: 20px;
-                margin-right: 8px;
-                filter: invert(100%);
-            }
+        .contact-info-top img {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+            filter: invert(100%);
+        }
 
         .section {
             padding: 40px 20px;
@@ -159,53 +199,56 @@
             scroll-snap-align: start;
         }
 
-            .item img {
-                display: block;
-                margin: 0 auto;
-            }
+        .item img {
+            display: block;
+            margin: 0 auto;
+        }
 
-        .download-links, .aboutme-section {
+        .download-links,
+        .aboutme-section {
             text-align: center;
             padding: 20px;
         }
 
-            .download-links a, .aboutme-section a {
-                display: inline-block;
-                margin: 10px;
-                text-decoration: none;
-                color: #4FC3F7;
-                font-weight: bold;
-            }
+        .download-links a,
+        .aboutme-section a {
+            display: inline-block;
+            margin: 10px;
+            text-decoration: none;
+            color: #4FC3F7;
+            font-weight: bold;
+        }
 
         .contact-section {
             text-align: center;
         }
 
-            .contact-section form {
-                display: flex;
-                flex-direction: column;
-                max-width: 400px;
-                margin: 0 auto;
-                gap: 10px;
-            }
+        .contact-section form {
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+            margin: 0 auto;
+            gap: 10px;
+        }
 
-            .contact-section input, .contact-section textarea {
-                padding: 10px;
-                border: 1px solid #444;
-                background: #222;
-                color: #eee;
-                border-radius: 5px;
-            }
+        .contact-section input,
+        .contact-section textarea {
+            padding: 10px;
+            border: 1px solid #444;
+            background: #222;
+            color: #eee;
+            border-radius: 5px;
+        }
 
-            .contact-section button {
-                padding: 10px;
-                border: none;
-                background-color: #4FC3F7;
-                color: #000;
-                cursor: pointer;
-                border-radius: 5px;
-                font-weight: bold;
-            }
+        .contact-section button {
+            padding: 10px;
+            border: none;
+            background-color: #4FC3F7;
+            color: #000;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+        }
 
         footer {
             background: #000;
@@ -218,12 +261,12 @@
             margin-top: 10px;
         }
 
-            .social-icons a img {
-                width: 24px;
-                height: 24px;
-                margin: 0 10px;
-                filter: invert(100%);
-            }
+        .social-icons a img {
+            width: 24px;
+            height: 24px;
+            margin: 0 10px;
+            filter: invert(100%);
+        }
 
         .aboutme-subsection {
             background: #2a2a2a;
@@ -234,10 +277,10 @@
             text-align: left;
         }
 
-            .aboutme-subsection h3 {
-                margin-top: 0;
-                color: #4FC3F7;
-            }
+        .aboutme-subsection h3 {
+            margin-top: 0;
+            color: #4FC3F7;
+        }
 
         /* Only works with Max width of 768px devices */
         @media (max-width: 768px) {
@@ -257,12 +300,12 @@
             .zoom-hover:hover {
                 transform: scale(1.5);
                 z-index: 2;
-                box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
             }
         }
-
     </style>
 </head>
+
 <body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
 
     <header>
@@ -272,11 +315,26 @@
             <div class="center-content">
                 <h1>Furkan Canturk</h1>
                 <nav>
+                    <div class="nav-item">
                     <a href="#projects">Projects</a>
-                    <a href="#assets">Assets</a>
-                    <a href="#works">Other Works</a>
-                    <a href="#aboutme">About Me</a>
-                    <a href="#contact">Contact</a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#assets">Assets</a>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#works">Other Works</a>
+                        <div class="dropdown-content">
+                            <a href="#art">Art Works</a>
+                            <a href="#UI">UI/UX Designs</a>
+                            <a href="#other">Other</a>
+                        </div>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#aboutme">About Me</a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="#contact">Contact</a>
+                    </div>
                 </nav>
             </div>
             <img src="RulnarLogo.png" alt="Logo" class="logo logo-secondary">
@@ -286,12 +344,15 @@
     <section class="top-section">
         <div class="top-description">
             <p style="max-width: 1000px; margin: 0 auto 20px; font-size: 1.15em; font-family: 'Merriweather', serif;">
-                Hello there! I am Furkan Canturk, a dedicated and creative game designer with a deep interest in creating games, digital art, narrative systems, and creating stuff for fun. I love making projects come to life, whether that's video games, board games, or simple art.
+                Hello there! I am Furkan Canturk, a dedicated and creative game designer with a deep interest in
+                creating games, digital art, narrative systems, and creating stuff for fun. I love making projects come
+                to life, whether that's video games, board games, or simple art.
             </p>
         </div>
         <div class="contact-info-top">
             <a href="mailto:furkancbrx2@gmail.com">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/gmail.svg" alt="Email"> furkancbrx2@gmail.com
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/gmail.svg" alt="Email">
+                furkancbrx2@gmail.com
             </a>
             <a href="https://www.linkedin.com/in/furkan-canturk-a456b4337/" target="_blank">
                 <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn"> LinkedIn
@@ -310,10 +371,13 @@
         <div class="carousel">
             <div class="item">
                 <h3>Artemis</h3>
-                <div class="hover-container" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-                    <img src="ArtemisThumbnail.png" alt="Game Jam" class="game-thumbnail" style="width: 280px; border-radius: 16px;">
+                <div class="hover-container"
+                    style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                    <img src="ArtemisThumbnail.png" alt="Game Jam" class="game-thumbnail"
+                        style="width: 280px; border-radius: 16px;">
                     <a href="https://frkncx.itch.io/artemis" target="_blank" class="link-icon">
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" alt="Itch.io"> Itch.io
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" alt="Itch.io">
+                        Itch.io
                     </a>
                 </div>
                 <p style="max-width: 300px;">
@@ -322,34 +386,45 @@
             </div>
             <div class="item">
                 <h3>Haunted Palace</h3>
-                <div class="hover-container" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-                    <img src="HountedPalaceThumbnail.png" alt="Game Jam" class="game-thumbnail" style="width: 280px; border-radius: 16px;">
-                    <a href="https://frkncx.itch.io/haunted-palace" target="_blank" class="link-icon">     
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" alt="Itch.io"> Itch.io
+                <div class="hover-container"
+                    style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                    <img src="HountedPalaceThumbnail.png" alt="Game Jam" class="game-thumbnail"
+                        style="width: 280px; border-radius: 16px;">
+                    <a href="https://frkncx.itch.io/haunted-palace" target="_blank" class="link-icon">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" alt="Itch.io">
+                        Itch.io
                     </a>
                 </div>
                 <p style="max-width: 300px;">
-                    A Level Design Project for a 3D Game Jam, where I designed a haunted palace level with various puzzles and challenges.
+                    A Level Design Project for a 3D Game Jam, where I designed a haunted palace level with various
+                    puzzles and challenges.
                 </p>
             </div>
             <div class="item">
                 <h3>Erebus</h3>
-                <div class="hover-container" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-                    <img src="ErebusThumbnail.png" alt="Game Jam" class="game-thumbnail" style="width: 280px; border-radius: 16px;">
+                <div class="hover-container"
+                    style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                    <img src="ErebusThumbnail.png" alt="Game Jam" class="game-thumbnail"
+                        style="width: 280px; border-radius: 16px;">
                     <a href="https://frkncx.itch.io/Erebus" target="_blank" class="link-icon">
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" alt="Itch.io"> Itch.io
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" alt="Itch.io">
+                        Itch.io
                     </a>
                 </div>
                 <p style="max-width: 300px;">
-                    A game jam made with Unity URP, featuring a 3D environment with a focus on simulating a microscoping world.
+                    A game jam made with Unity URP, featuring a 3D environment with a focus on simulating a microscoping
+                    world.
                 </p>
             </div>
             <div class="item">
                 <h3>Apollo</h3>
-                <div class="hover-container" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-                    <img src="ApolloThumbnail.png" alt="Game Jam" class="game-thumbnail" style="width: 280px; border-radius: 16px;">
+                <div class="hover-container"
+                    style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                    <img src="ApolloThumbnail.png" alt="Game Jam" class="game-thumbnail"
+                        style="width: 280px; border-radius: 16px;">
                     <a href="https://frkncx.itch.io/Apollo" target="_blank" class="link-icon">
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" alt="Itch.io"> Itch.io
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" alt="Itch.io">
+                        Itch.io
                     </a>
                 </div>
                 <p style="max-width: 300px;">
@@ -358,14 +433,18 @@
             </div>
             <div class="item">
                 <h3>Orion's Mine</h3>
-                <div class="hover-container" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-                    <img src="OrionsMineThumbnail.png" alt="Game Jam" class="game-thumbnail" style="width: 280px; border-radius: 16px;">
+                <div class="hover-container"
+                    style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                    <img src="OrionsMineThumbnail.png" alt="Game Jam" class="game-thumbnail"
+                        style="width: 280px; border-radius: 16px;">
                     <a href="https://frkncx.itch.io/Orions-Mine" target="_blank" class="link-icon">
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" alt="Itch.io"> Itch.io
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" alt="Itch.io">
+                        Itch.io
                     </a>
                 </div>
                 <p style="max-width: 300px;">
-                    A game jam made with Unity that introduces an automation experience, where players can build and manage their own mining operations.
+                    A game jam made with Unity that introduces an automation experience, where players can build and
+                    manage their own mining operations.
                 </p>
             </div>
         </div>
@@ -385,25 +464,29 @@
         </div>
     </section>
 
-    <section class="section" id="works">
-        <h2>Other Works</h2>
+    <section class="section" id="art">
+        <h2>Art Works</h2>
         <div class="carousel">
             <div class="item">
                 <h3>Character Design</h3>
                 <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-                    <img src="CharacterDesign/ZeminiEmperorSketch.png" alt="Character Sketch" class="zoom-hover" style="width: 248px; border-radius: 16px;">
-                    <img src="CharacterDesign/ZeminiEmperorOutline.png" alt="Character Outline" class="zoom-hover" style="width: 248px; border-radius: 16px;">
-                    <img src="CharacterDesign/FurkanCanturk_ZeminiEmperor.png" alt="Zemini Emperor" class="zoom-hover" style="width: 248px; border-radius: 16px;">
+                    <img src="CharacterDesign/ZeminiEmperorSketch.png" alt="Character Sketch" class="zoom-hover"
+                        style="width: 248px; border-radius: 16px;">
+                    <img src="CharacterDesign/ZeminiEmperorOutline.png" alt="Character Outline" class="zoom-hover"
+                        style="width: 248px; border-radius: 16px;">
+                    <img src="CharacterDesign/FurkanCanturk_ZeminiEmperor.png" alt="Zemini Emperor" class="zoom-hover"
+                        style="width: 248px; border-radius: 16px;">
                 </div>
                 <p>2D Character Artwork made in Adobe Photoshop: Sketch-Outline-Complete</p>
             </div>
             <div class="item">
                 <h3>Game Poster</h3>
                 <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-                    <img src="VectorArt.png" alt="Minimalist Poster" class="zoom-hover" style="width: 280px; border-radius: 16px;">
+                    <img src="VectorArt.png" alt="Minimalist Poster" class="zoom-hover"
+                        style="width: 280px; border-radius: 16px;">
                 </div>
                 <p style="max-width: 270px;">
-                A Game Poster Made with Vector Art using Adobe Photoshop
+                    A Game Poster Made with Vector Art using Adobe Photoshop
                 </p>
             </div>
             <div class="item">
@@ -412,6 +495,41 @@
             </div>
         </div>
     </section>
+
+    <section class="section" id="UI">
+        <h2>UI/UX Designs</h2>
+        <div class="carousel">
+            <div class="item">
+                <h3>Main Menu Prototype</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                    <img src="MainMenuPrototype.jpg" alt="Main Menu Prototype" class="zoom-hover"
+                        style="width: 600px; border-radius: 16px;">
+                </div>
+                <p style="max-width: 270px;">
+                    <center></center>
+                    A menu prototype for a strategy video game idea made in Photoshop
+                </p>
+            </div>
+            <div class="item">
+                <h3>Design 2</h3>
+                <p>Another design description.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- <section class="section" id="other">
+        <h2>Other</h2>
+        <div class="carousel">
+            <div class="item">
+                <h3>Design 1</h3>
+                <p>Another design description.</p>
+            </div>
+            <div class="item">
+                <h3>Design 2</h3>
+                <p>Another design description.</p>
+            </div>
+        </div>
+    </section> -->
 
     <section class="aboutme-section" id="aboutme">
         <h2>About Me</h2>
@@ -439,7 +557,6 @@
         <p style="max-width: 800px; margin: 0 auto 20px; font-size: 1.15em; font-family: 'Merriweather', serif;">
             <strong>Email:</strong> furkancbrx2@gmail.com
         </p>
-        <!-- <a href="fcanturk_resume.pdf" download>Download CV</a> -->
     </section>
 
     <section class="contact-section" id="contact">
@@ -471,4 +588,5 @@
         </div>
     </footer>
 </body>
+
 </html>
