@@ -97,30 +97,33 @@
             display: block;
         }
 
-       nav {
+        nav {
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            padding: 0px;
+            box-sizing: border-box;
         }
 
         .nav-item {
             position: relative;
-            margin: 0 15px; 
         }
 
-        .nav-item > a {
-        text-decoration: none;
-        color: #fff;
-        font-weight: bold;
-        display: inline-block;
-        padding: 5px 0px;
+        .nav-item>a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            display: inline-block;
+            padding: 5px 0px;
         }
 
         .dropdown-content {
             display: none;
             position: absolute;
             top: 100%;
-            left: -8%;
+            left: -5%;
             background: white;
             border: 1px solid #ddd;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
@@ -316,7 +319,7 @@
                 <h1>Furkan Canturk</h1>
                 <nav>
                     <div class="nav-item">
-                    <a href="#projects">Projects</a>
+                        <a href="#projects">Projects</a>
                     </div>
                     <div class="nav-item">
                         <a href="#assets">Assets</a>
@@ -454,20 +457,24 @@
                     <img src="BlockBreakoutIcon.png" alt="Game Jam" class="game-thumbnail"
                         style="width: 280px; border-radius: 16px;">
                     <div style="display: flex; gap: 12px; justify-content: center;">
-        <a href="https://frkncx.itch.io/Block-Breakout" target="_blank"
-            style="display: flex; align-items: center; gap: 6px; text-decoration: none; color: white; background: #444; padding: 6px 10px; border-radius: 8px;">
-            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" alt="Itch.io" style="width: 20px;">
-            Itch.io
-        </a>
-        <a href="https://play.google.com/store/apps/details?id=com.TheMindsEntertainment.BlockBreakout" target="_blank"
-            style="display: flex; align-items: center; gap: 6px; text-decoration: none; color: white; background: #444; padding: 6px 10px; border-radius: 8px;">
-            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/googleplay.svg" alt="Google Play" style="width: 20px;">
-            Google Play
-        </a>
-    </div>
+                        <a href="https://frkncx.itch.io/Block-Breakout" target="_blank"
+                            style="display: flex; align-items: center; gap: 6px; text-decoration: none; color: white; background: #444; padding: 6px 10px; border-radius: 8px;">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" alt="Itch.io"
+                                style="width: 20px;">
+                            Itch.io
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=com.TheMindsEntertainment.BlockBreakout"
+                            target="_blank"
+                            style="display: flex; align-items: center; gap: 6px; text-decoration: none; color: white; background: #444; padding: 6px 10px; border-radius: 8px;">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/googleplay.svg"
+                                alt="Google Play" style="width: 20px;">
+                            Google Play
+                        </a>
+                    </div>
                 </div>
                 <p style="max-width: 300px;">
-                    An arcade-style game where players control a paddle to break blocks, meant to be published on Google Play Store to test.
+                    An arcade-style game where players control a paddle to break blocks, meant to be published on Google
+                    Play Store to test.
                 </p>
             </div>
         </div>
