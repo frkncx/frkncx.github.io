@@ -62,6 +62,13 @@
             cursor: pointer;
         }
 
+        .zoom-centerhover {
+            transition: transform 0.4s ease;
+            /* cursor: pointer; */
+            position: relative;
+            will-change: transform;
+        }
+
         .hover-container {
             position: relative;
             display: inline-block;
@@ -305,6 +312,13 @@
                 z-index: 2;
                 box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
             }
+
+            .zoom-centerhover:hover {
+                transform: scale(1.5) translate(var(--tx));
+                z-index: 2;
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            }
+
         }
     </style>
 </head>
@@ -533,7 +547,7 @@
                 <h3>Main Menu Prototype</h3>
                 <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
                     <img src="MainMenuPrototype.jpg" alt="Main Menu Prototype" class="zoom-hover"
-                        style="width: 600px; border-radius: 16px;">
+                        style="width: 700px; border-radius: 16px;">
                 </div>
                 <p style="max-width: 270px;">
                     <center></center>
@@ -620,3 +634,24 @@
 </body>
 
 </html>
+
+<script>
+  document.querySelectorAll('.zoom-hover').forEach(img => {
+    img.addEventListener('mouseenter', () => {
+      const rect = img.getBoundingClientRect();
+      const centerX = window.innerWidth / 2;
+      const centerY = window.innerHeight / 2;
+      const imgCenterX = rect.left + rect.width / 2;
+      const imgCenterY = rect.top + rect.height / 2;
+
+      const dx = centerX - imgCenterX;
+      const dy = centerY - imgCenterY;
+
+      img.style.setProperty('--tx', `${dx * 0.2}px`);
+    });
+
+    img.addEventListener('mouseleave', () => {
+      img.style.setProperty('--tx', `0px`);
+    });
+  });
+</script>
