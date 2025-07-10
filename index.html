@@ -498,12 +498,14 @@
         <h2>Assets</h2>
         <div class="carousel">
             <div class="item">
-                <h3>Asset 1</h3>
-                <p>Short description of the asset.</p>
-            </div>
-            <div class="item">
-                <h3>Asset 2</h3>
-                <p>Another asset description.</p>
+                <h3>Asset Sample 1</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                    <img src="Asset1.png" alt="Minimalist Poster" class="zoom-hover"
+                        style="width: 280px; border-radius: 16px;">
+                </div>
+                <p style="max-width: 270px;">
+                    An asset spritesheet that contains microscope themed icons, made in Adobe Photoshop.
+                </p>
             </div>
         </div>
     </section>
@@ -647,23 +649,3 @@
 
 </html>
 
-<script>
-  document.querySelectorAll('.zoom-hover').forEach(img => {
-    img.addEventListener('mouseenter', () => {
-      const rect = img.getBoundingClientRect();
-      const centerX = window.innerWidth / 2;
-      const centerY = window.innerHeight / 2;
-      const imgCenterX = rect.left + rect.width / 2;
-      const imgCenterY = rect.top + rect.height / 2;
-
-      const dx = centerX - imgCenterX;
-      const dy = centerY - imgCenterY;
-
-      img.style.setProperty('--tx', `${dx * 0.2}px`);
-    });
-
-    img.addEventListener('mouseleave', () => {
-      img.style.setProperty('--tx', `0px`);
-    });
-  });
-</script>
