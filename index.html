@@ -294,6 +294,13 @@
 
         /* Only works with Max width of 768px devices */
         @media (max-width: 768px) {
+            .section#UI img {
+                width: 100%;
+                max-width: 350px;
+                /* Limit image size on mobile */
+                height: auto;
+            }
+            
             .logo {
                 display: none;
             }
@@ -307,13 +314,6 @@
 
         /* Only works with min width of 768px devices */
         @media (min-width: 768px) {
-            .section#UI img {
-                width: 100%;
-                max-width: 350px;
-                /* Limit image size on mobile */
-                height: auto;
-            }
-
             .zoom-hover:hover {
                 transform: scale(1.5);
                 z-index: 2;
