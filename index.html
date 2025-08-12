@@ -305,8 +305,15 @@
             }
         }
 
-        /* Only works with mine width of 768px devices */
+        /* Only works with min width of 768px devices */
         @media (min-width: 768px) {
+            .section#UI img {
+                width: 100%;
+                max-width: 350px;
+                /* Limit image size on mobile */
+                height: auto;
+            }
+
             .zoom-hover:hover {
                 transform: scale(1.5);
                 z-index: 2;
@@ -323,7 +330,7 @@
     </style>
 </head>
 
-<body >
+<body>
 
     <header>
         <img src="logo.png" alt="Logo" class="mobile-logo">
@@ -648,4 +655,3 @@
 </body>
 
 </html>
-
