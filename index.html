@@ -15,8 +15,6 @@
             background: linear-gradient(145deg, #0f0f0f, #1a1a1a);
             color: #eee;
             cursor: url("CustomCursor.png"), auto;
-            a:hover, button:hover {
-    cursor: url("CustomCursorHover.png"), pointer;
         }
 
         header {
@@ -85,6 +83,10 @@
         .hover-container:hover .game-thumbnail {
             filter: blur(2px);
         }
+
+        a:hover, button:hover {
+    cursor: url("CustomCursorHover.png"), pointer;
+}
 
         .link-icon {
             position: absolute;
@@ -201,7 +203,31 @@
             scroll-snap-type: x mandatory;
             gap: 20px;
             padding: 20px;
+            -webkit-overflow-scrolling: touch;       /* smoother iOS scrolling */
+            scrollbar-width: thin;                    /* firefox */
+            scrollbar-color: #4FC3F7 #2a2a2a;
         }
+        
+        .carousel .item {
+        flex: 0 0 auto;                  /* don't grow/shrink unexpectedly */
+        min-width: 280px;                /* minimum reasonable size */
+        max-width: 85vw;                 /* prevent going way beyond screen on mobile */
+        scroll-snap-align: start;
+        background: #2a2a2a;
+        border-radius: 8px;
+        padding: 20px;
+        box-sizing: border-box;
+        }
+
+.carousel .item img,
+.carousel .item video {
+    width: 100%;
+    height: auto;
+    max-width: 700px;                /* cap desktop size */
+    border-radius: 16px;
+    display: block;
+    margin: 0 auto;
+}
 
         .item {
             min-width: 250px;
@@ -297,22 +323,20 @@
 
         /* (MOBILE) Only works with Max width of 768px devices */
         @media (max-width: 768px) {
-            .section#UI {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 20px;
-        box-sizing: border-box;
+            .section#UI,
+            .section#UI video {
+        max-width: 100% !important;
+        width: 100% !important;
     }
 
     .section#UI .item {
-        width: 100%;
-        max-width: 100%;
+        min-width: 80vw;
+        max-width: 86vw;
     }
 
     .section#UI img {
         width: 100%;
-        max-width: 350px; /* Limit image size on mobile */
+        max-width: 700px;
         height: auto;
     }
 
@@ -615,26 +639,27 @@
     <section class="section" id="UI">
         <h2>UI/UX Designs</h2>
         <div class="carousel">
+
             <div class="item">
                 <h3>Main Menu Prototype</h3>
-                <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                <div style="display: flex; gap: 10px; justify-content: center;">
                     <img src="MainMenuPrototype.jpg" alt="Main Menu Prototype" class="zoom-hover"
                         style="width:100%; max-width: 700px; border-radius: 16px;">
                 </div>
-                <p style="max-width: 270px;">
-                    <center></center>
+                <p style="max-width:500px; margin:15px auto; text-align:center;">
                     A menu prototype for a strategy video game idea made in Photoshop
                 </p>
             </div>
+
             <div class="item">
                 <h3>Menu Tour</h3>
-                <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                <div style="display: flex; gap: 10px; justify-content: center;">
                  <video autoplay muted loop controls
                        style="width:100%; max-width:700px; border-radius:16px; box-shadow:0 0 20px rgba(0,0,0,0.4);">
                     <source src="MenuTour.mp4" type="video/mp4">
                 </video>
                 </div>
-                <p style="max-width:270px; margin:15px auto; text-align:center;">
+                <p style="max-width:500px; margin:15px auto; text-align:center;">
                     A UI portfolio piece made in Unity that showcases menus and UI/UX design
                 </p>
             </div>
@@ -646,7 +671,7 @@
         <div class="carousel">
             <div class="item">
                 <h3>Blend Tree Movement Showcase</h3>
-                <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                <div style="display: flex; gap: 10px; justify-content: center;">
                  <video autoplay muted loop controls
                        style="width:100%; max-width:700px; border-radius:16px; box-shadow:0 0 20px rgba(0,0,0,0.4);">
                     <source src="BlendTreeMovementShowcase.mp4" type="video/mp4">
@@ -658,7 +683,7 @@
             </div>
             <div class="item">
                 <h3>NPC State Showcase</h3>
-                <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                <div style="display: flex; gap: 10px; justify-content: center;">
                  <video autoplay muted loop controls
                        style="width:100%; max-width:700px; border-radius:16px; box-shadow:0 0 20px rgba(0,0,0,0.4);">
                     <source src="NPCStateShowcase.mp4" type="video/mp4">
@@ -670,7 +695,7 @@
             </div>
             <div class="item">
                 <h3>Local Multiplayer Showcase</h3>
-                <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                <div style="display: flex; gap: 10px; justify-content: center;">
                  <video autoplay muted loop controls
                        style="width:100%; max-width:700px; border-radius:16px; box-shadow:0 0 20px rgba(0,0,0,0.4);">
                     <source src="LocalMultiplayerShowcase.mp4" type="video/mp4">
@@ -730,5 +755,4 @@
         </div>
     </footer>
 </body>
-
 </html>
