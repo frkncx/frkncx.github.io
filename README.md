@@ -3,7 +3,7 @@
 🎮 Welcome to my personal portfolio website!  
 This site showcases my game development projects, original assets, board game designs, and more.
 
-This page is copyrighted and I will use my rights to the best of my ability if you plagiarize it.
+Note: this page is copyrighted. If you ever try to plagiarize it or steal my content I will use my rights to the best of my ability.
 
 ## 🌐 Live Website
 
