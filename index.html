@@ -205,12 +205,13 @@
 
         .carousel {
             display: flex;
+            justify-content: safe center;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             gap: 20px;
             padding: 20px;
-            -webkit-overflow-scrolling: touch;       /* smoother iOS scrolling */
-            scrollbar-width: thin;                    /* firefox */
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
             scrollbar-color: #4FC3F7 #2a2a2a;
         }
         
@@ -225,7 +226,7 @@
         box-sizing: border-box;
         }
 
-.carousel .item img,
+.carousel .item img:not(.platform-badge),
 .carousel .item video {
     width: 100%;
     height: auto;
@@ -342,6 +343,33 @@
             text-align: left;
             padding-top: 4px;
             padding-bottom: 4px;
+        }
+
+        /* ── Platform badge icons (bottom-left of thumbnail) ── */
+        .thumb-wrap {
+            position: relative;
+            display: inline-block;
+            line-height: 0;         /* kill phantom gap under img */
+        }
+
+        .platform-badges {
+            position: absolute;
+            bottom: 6px;
+            left: 6px;
+            display: flex;
+            gap: 3px;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        .platform-badge {
+            width: 48px;
+            height: 48px;
+            background: rgba(0, 0, 0, 0);
+            border-radius: 3px;
+            padding: 2px;
+            filter: invert(100%);
+            display: block;
         }
 
         .multi-link-overlay {
@@ -493,8 +521,17 @@
                     <h3>Encyclopedia Galactica</h3>
                     <div class="hover-container"
                         style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-                        <img src="EncyclopediaGalacticaThumbnail.png" alt="Passion Project" class="game-thumbnail"
-                            style="width: 280px; border-radius: 16px;">
+                        <div class="thumb-wrap" data-preview>
+                            <img src="EncyclopediaGalacticaThumbnail.png" alt="Passion Project" class="game-thumbnail preview-thumb"
+                                style="width: 280px; border-radius: 16px;">
+                            <video class="preview-video" src="EncyclopediaGalacticaVID.mp4"
+                                loop muted playsinline
+                                style="width: 280px; border-radius: 16px; display: none;">
+                            </video>
+                            <div class="platform-badges">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" class="platform-badge" alt="itch.io">
+                            </div>
+                        </div>
                         <a href="https://furkancx.itch.io/encyclopedia-galactica" target="_blank" class="link-icon">
                             <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" alt="Itch.io">
                             Itch.io
@@ -510,8 +547,17 @@
                     <h3>Memento Mori</h3>
                     <div class="hover-container"
                         style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-                        <img src="MementoMoriThumbnail.png" alt="Game Jam" class="game-thumbnail"
-                            style="width: 280px; border-radius: 16px;">
+                        <div class="thumb-wrap" data-preview>
+                            <img src="MementoMoriThumbnail.png" alt="Game Jam" class="game-thumbnail preview-thumb"
+                                style="width: 280px; border-radius: 16px;">
+                                <video class="preview-video" src="MementoMoriVID.mp4"
+                                loop muted playsinline
+                                style="width: 280px; border-radius: 16px; display: none;">
+                                </video>
+                            <div class="platform-badges">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" class="platform-badge" alt="itch.io">
+                            </div>
+                        </div>
                         <a href="https://furkancx.itch.io/memento-mori" target="_blank" class="link-icon">
                             <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" alt="Itch.io">
                             Itch.io
@@ -525,8 +571,18 @@
                     <h3>Block Breakout</h3>
                     <div class="hover-container"
                         style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-                        <img src="BlockBreakoutIcon.png" alt="Game Jam" class="game-thumbnail"
-                            style="width: 280px; border-radius: 16px;">
+                        <div class="thumb-wrap" data-preview>
+                            <img src="BlockBreakoutIcon.png" alt="Game Jam" class="game-thumbnail preview-thumb"
+                                style="width: 280px; border-radius: 16px;">
+                                <video class="preview-video" src="BlockBreakoutVID.mp4"
+                                loop muted playsinline
+                                style="width: 280px; border-radius: 16px; display: none;">
+                                </video>
+                            <div class="platform-badges">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" class="platform-badge" alt="itch.io">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/googleplay.svg" class="platform-badge" alt="Google Play">
+                            </div>
+                        </div>
                         <div class="multi-link-overlay">
                             <a href="https://frkncx.itch.io/Block-Breakout" target="_blank"
                                style="display: flex; align-items: center; gap: 6px; text-decoration: none; color: white; background: #444; padding: 8px 15px; border-radius: 8px; min-width: 160px; justify-content: center;">
@@ -551,8 +607,17 @@
                     <h3>Realm of Octahedron</h3>
                     <div class="hover-container"
                         style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-                        <img src="RealmOfOctahedronThumbnail.png" alt="Game Jam" class="game-thumbnail"
-                            style="width: 280px; border-radius: 16px;">
+                        <div class="thumb-wrap" data-preview>
+                            <img src="RealmOfOctahedronThumbnail.png" alt="Game Jam" class="game-thumbnail preview-thumb"
+                                style="width: 280px; border-radius: 16px;">
+                                <video class="preview-video" src="RealmOfOctahedronVID.mp4"
+                                loop muted playsinline
+                                style="width: 280px; border-radius: 16px; display: none;">
+                                </video>
+                            <div class="platform-badges">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" class="platform-badge" alt="itch.io">
+                            </div>
+                        </div>
                         <a href="https://frkncx.itch.io/realm-of-octahedron" target="_blank" class="link-icon">
                             <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" alt="Itch.io">
                             Itch.io
@@ -572,26 +637,69 @@
             <h3>Game Jams</h3>
             <div class="carousel">
                 <div class="item">
+                    <h3>Sled Slope</h3>
+                    <div class="hover-container"
+                        style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                        <div class="thumb-wrap" data-preview>
+                            <img src="SledSlopeThumbnail.png" alt="Game Jam" class="game-thumbnail preview-thumb"
+                                style="width: 280px; border-radius: 16px;">
+                                <video class="preview-video" src="SledSlopeVID.mp4"
+                                loop muted playsinline
+                                style="width: 280px; border-radius: 16px; display: none;">
+                                </video>
+                            <div class="platform-badges">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" class="platform-badge" alt="itch.io">
+                            </div>
+                        </div>
+                        <a href="https://furkancx.itch.io/sled-slope" target="_blank" class="link-icon">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" alt="Itch.io">
+                            Itch.io
+                        </a>
+                    </div>
+                    <p style="max-width: 300px;">
+                        Group Game Jam about an endless platformer where you control your penguin on a sled and 
+                        overcome obstacles to reach as many houses as you can, and claim powerups! Made in Unity with a team of 3-4 people.
+                    </p>
+                </div>
+                <div class="item">
                     <h3>Day Night Massacre</h3>
                     <div class="hover-container"
                         style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-                        <img src="DayNightMassacreThumbnail.png" alt="Game Jam" class="game-thumbnail"
-                            style="width: 280px; border-radius: 16px;">
+                        <div class="thumb-wrap" data-preview>
+                            <img src="DayNightMassacreThumbnail.png" alt="Game Jam" class="game-thumbnail preview-thumb"
+                                style="width: 280px; border-radius: 16px;">
+                                <video class="preview-video" src="DayNightMassacreVID.mp4"
+                                loop muted playsinline
+                                style="width: 280px; border-radius: 16px; display: none;">
+                                </video>
+                            <div class="platform-badges">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" class="platform-badge" alt="itch.io">
+                            </div>
+                        </div>
                         <a href="https://furkancx.itch.io/day-night-massacre" target="_blank" class="link-icon">
                             <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" alt="Itch.io">
                             Itch.io
                         </a>
                     </div>
                     <p style="max-width: 300px;">
-                        A 3D Game Jam made in Unity, where I made a shooter game with a day-night cycle
+                        A 4-hour 3D Game Jam made in Unity, where I made a shooter game with a day-night cycle
                     </p>
                 </div>
                 <div class="item">
                     <h3>Erebus</h3>
                     <div class="hover-container"
                         style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-                        <img src="ErebusThumbnail.png" alt="Game Jam" class="game-thumbnail"
-                            style="width: 280px; border-radius: 16px;">
+                        <div class="thumb-wrap" data-preview>
+                            <img src="ErebusThumbnail.png" alt="Game Jam" class="game-thumbnail preview-thumb"
+                                style="width: 280px; border-radius: 16px;">
+                                <video class="preview-video" src="ErebusVID.mp4"
+                                loop muted playsinline
+                                style="width: 280px; border-radius: 16px; display: none;">
+                                </video>
+                            <div class="platform-badges">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" class="platform-badge" alt="itch.io">
+                            </div>
+                        </div>
                         <a href="https://frkncx.itch.io/Erebus" target="_blank" class="link-icon">
                             <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" alt="Itch.io">
                             Itch.io
@@ -606,8 +714,17 @@
                     <h3>Apollo</h3>
                     <div class="hover-container"
                         style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-                        <img src="ApolloThumbnail.png" alt="Game Jam" class="game-thumbnail"
-                            style="width: 280px; border-radius: 16px;">
+                        <div class="thumb-wrap" data-preview>
+                            <img src="ApolloThumbnail.png" alt="Game Jam" class="game-thumbnail preview-thumb"
+                                style="width: 280px; border-radius: 16px;">
+                                <video class="preview-video" src="ApolloVID.mp4"
+                                loop muted playsinline
+                                style="width: 280px; border-radius: 16px; display: none;">
+                                </video>
+                            <div class="platform-badges">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" class="platform-badge" alt="itch.io">
+                            </div>
+                        </div>
                         <a href="https://frkncx.itch.io/Apollo" target="_blank" class="link-icon">
                             <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" alt="Itch.io">
                             Itch.io
@@ -621,8 +738,17 @@
                     <h3>Orion's Mine</h3>
                     <div class="hover-container"
                         style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-                        <img src="OrionsMineThumbnail.png" alt="Game Jam" class="game-thumbnail"
-                            style="width: 280px; border-radius: 16px;">
+                        <div class="thumb-wrap" data-preview>
+                            <img src="OrionsMineThumbnail.png" alt="Game Jam" class="game-thumbnail preview-thumb"
+                                style="width: 280px; border-radius: 16px;">
+                            <video class="preview-video" src="OrionsMineVID.mp4"
+                                loop muted playsinline
+                                style="width: 280px; border-radius: 16px; display: none;">
+                            </video>
+                            <div class="platform-badges">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" class="platform-badge" alt="itch.io">
+                            </div>
+                        </div>
                         <a href="https://frkncx.itch.io/Orions-Mine" target="_blank" class="link-icon">
                             <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" alt="Itch.io">
                             Itch.io
@@ -646,8 +772,17 @@
                     <h3>Artemis</h3>
                     <div class="hover-container"
                         style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-                        <img src="ArtemisThumbnail.png" alt="Game Jam" class="game-thumbnail"
-                            style="width: 280px; border-radius: 16px;">
+                        <div class="thumb-wrap" data-preview>
+                            <img src="ArtemisThumbnail.png" alt="Game Jam" class="game-thumbnail preview-thumb"
+                                style="width: 280px; border-radius: 16px;">
+                            <video class="preview-video" src="ArtemisVID.mp4"
+                                loop muted playsinline
+                                style="width: 280px; border-radius: 16px; display: none;">
+                            </video>
+                            <div class="platform-badges">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" class="platform-badge" alt="itch.io">
+                            </div>
+                        </div>
                         <a href="https://frkncx.itch.io/artemis" target="_blank" class="link-icon">
                             <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" alt="Itch.io">
                             Itch.io
@@ -661,8 +796,17 @@
                     <h3>Factory Level</h3>
                     <div class="hover-container"
                         style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-                        <img src="FactoryLevelThumbnail.png" alt="Game Jam" class="game-thumbnail"
-                            style="width: 280px; border-radius: 16px;">
+                        <div class="thumb-wrap" data-preview>
+                            <img src="FactoryLevelThumbnail.png" alt="Game Jam" class="game-thumbnail preview-thumb"
+                                style="width: 280px; border-radius: 16px;">
+                            <video class="preview-video" src="FactoryLevelVID.mp4"
+                                loop muted playsinline
+                                style="width: 280px; border-radius: 16px; display: none;">
+                            </video>
+                            <div class="platform-badges">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" class="platform-badge" alt="itch.io">
+                            </div>
+                        </div>
                         <a href="https://frkncx.itch.io/factory-level" target="_blank" class="link-icon">
                             <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" alt="Itch.io">
                             Itch.io
@@ -676,8 +820,17 @@
                     <h3>Haunted Palace</h3>
                     <div class="hover-container"
                         style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-                        <img src="HountedPalaceThumbnail.png" alt="Game Jam" class="game-thumbnail"
-                            style="width: 280px; border-radius: 16px;">
+                        <div class="thumb-wrap" data-preview>
+                            <img src="HauntedPalaceThumbnail.png" alt="Game Jam" class="game-thumbnail preview-thumb"
+                                style="width: 280px; border-radius: 16px;">
+                            <video class="preview-video" src="HauntedPalaceVID.mp4"
+                                loop muted playsinline
+                                style="width: 280px; border-radius: 16px; display: none;">
+                            </video>
+                            <div class="platform-badges">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" class="platform-badge" alt="itch.io">
+                            </div>
+                        </div>
                         <a href="https://frkncx.itch.io/haunted-palace" target="_blank" class="link-icon">
                             <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" alt="Itch.io">
                             Itch.io
@@ -701,8 +854,17 @@
                     <h3>Crown of Domination</h3>
                     <div class="hover-container"
                         style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-                        <img src="CrownOfDominationThumbnail.png" alt="Game Jam" class="game-thumbnail"
-                            style="width: 280px; border-radius: 16px;">
+                        <div class="thumb-wrap" data-preview>
+                            <img src="CrownOfDominationThumbnail.png" alt="Game Jam" class="game-thumbnail preview-thumb"
+                                style="width: 280px; border-radius: 16px;">
+                            <video class="preview-video" src="CrownOfDominationVID.mp4"
+                                loop muted playsinline
+                                style="width: 280px; border-radius: 16px; display: none;">
+                            </video>
+                            <div class="platform-badges">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" class="platform-badge" alt="itch.io">
+                            </div>
+                        </div>
                         <a href="https://furkancx.itch.io/crown-of-domination" target="_blank" class="link-icon">
                             <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" alt="Itch.io">
                             Itch.io
@@ -858,6 +1020,44 @@
 </html>
 
 <script>
+// ── Video preview on dwell ────────────────────────────────────────────────
+(function () {
+    const DWELL_MS = 2000;
+
+    document.querySelectorAll('[data-preview]').forEach(wrap => {
+        const thumb = wrap.querySelector('.preview-thumb');
+        const video = wrap.querySelector('.preview-video');
+        let timer = null;
+
+        function showVideo() {
+            thumb.style.display = 'none';
+            video.style.display = 'block';
+            video.currentTime = 0;
+            video.play();
+        }
+
+        function showThumb() {
+            clearTimeout(timer);
+            timer = null;
+            video.pause();
+            video.style.display = 'none';
+            thumb.style.display = 'block';
+        }
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    timer = setTimeout(showVideo, DWELL_MS);
+                } else {
+                    showThumb();
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(wrap);
+    });
+})();
+
 // Only run on touch devices
 if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
   document.querySelectorAll('.hover-container').forEach(container => {
