@@ -325,7 +325,7 @@
 
         .aboutme-subsection h3 {
             margin-top: 0;
-            color: #4FC3F7;
+            color: #e0e0e0;
         }
 
         .project-subsection {
@@ -334,15 +334,60 @@
 
         .project-subsection h3 {
             font-size: 1.1em;
-            color: #4FC3F7;
+            color: #e0e0e0;
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-bottom: 10px;
-            border-left: 4px solid #4FC3F7;
+            border-left: 4px solid #e0e0e0;
             padding-left: 12px;
             text-align: left;
             padding-top: 4px;
             padding-bottom: 4px;
+        }
+
+        /* ── Skills table ── */
+        .skills-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .skills-category {
+            min-width: 160px;
+            font-size: 0.8em;
+            font-family: 'Merriweather', serif;
+            color: #e0e0e0;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            flex-shrink: 0;
+        }
+
+        .skills-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-chip {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 6px;
+            padding: 5px 10px;
+            font-size: 0.85em;
+            font-family: 'Merriweather', serif;
+            color: #ddd;
+        }
+
+        .skill-chip img {
+            width: 16px;
+            height: 16px;
+            filter: invert(100%);
+            flex-shrink: 0;
         }
 
         /* ── Platform badge icons (bottom-left of thumbnail) ── */
@@ -486,13 +531,12 @@
     <section class="top-section">
         <div class="top-description">
             <p style="max-width: 1000px; margin: 0 auto 20px; font-size: 1.15em; font-family: 'Merriweather', serif;">
-                Hello there! I am Furkan Canturk, Unity game developer and game designer with a deep interest in
-                creating games, designing mechanics, good user experiences.
+                I am Furkan Canturk, Unity game developer with 2 years of experience in C# programming, rapid
+                prototyping, and UI/UX design.
             </p>
             <p style="max-width: 1000px; margin: 0 auto 20px; font-size: 1.15em; font-family: 'Merriweather', serif;">
-                I published over 14 games and projects, from multiplayer assets to sci-fi simulations, as well as 
-                UI/UX design projects. I am always looking for new opportunities to collaborate and create amazing 
-                experiences, so feel free to reach out!
+                I shipped 14+ games and projects across game jams, simulations, and commercial assets; including a published 
+                networking asset on the Unity Asset Store.
             </p>
         </div>
         <div class="contact-info-top">
@@ -941,7 +985,7 @@
                     </a>
                 </div>
                 <p style="max-width: 270px;">
-                    Available for freelance work on Fiverr, offering services such as game development, prototyping, and consulting. Contact me for custom projects and collaborations!
+                    I offer services such as multiplayer integration, C# bug fixing, and rapid game prototyping. Contact me for custom projects and collaborations
                 </p>
             </div>
         </div>
@@ -1014,22 +1058,122 @@
         </p>
         <h3>Work Experience</h3>
         <p style="max-width: 800px; margin: 0 auto 20px; font-size: 1.15em; font-family: 'Merriweather', serif;">
-            Phantom Compass – Game Developer Internship (2026)
+            Phantom Compass – Junior Developer Internship (2026)
         </p>
         <h3>Education</h3>
         <p style="max-width: 800px; margin: 0 auto 20px; font-size: 1.15em; font-family: 'Merriweather', serif;">
-            Conestoga College – Game Design Diploma (2024–2026)
+            Conestoga College – Game Design Diploma (2024–2026) - Kitchener, ON
         </p>
         <p style="max-width: 800px; margin: 0 auto 20px; font-size: 1.15em; font-family: 'Merriweather', serif;">
             Coursera - C# Programming for Unity Game Development Online Certificate (2023)
         </p>
         <h3>Skills</h3>
-        <p style="max-width: 800px; margin: 0 auto 20px; font-size: 1.15em; font-family: 'Merriweather', serif;">
-            Unity and C#, GitHub for Version Control, Photoshop, Illustrator, Figma, and more.
-        </p>
-        <p style="max-width: 800px; margin: 0 auto 20px; font-size: 1.15em; font-family: 'Merriweather', serif;">
-            -- Contact me for more details about my experience, education, and skills! --
-        </p>
+        <div style="max-width: 800px; margin: 0 auto 30px;">
+
+            <!-- Row -->
+            <div class="skills-row">
+                <span class="skills-category">Programming</span>
+                <div class="skills-items">
+                    <div class="skill-chip">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/csharp.svg" alt="C#">
+                        C#
+                    </div>
+                </div>
+            </div>
+
+            <div class="skills-row">
+                <span class="skills-category">Engine &amp; IDE</span>
+                <div class="skills-items">
+                    <div class="skill-chip">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/unity.svg" alt="Unity">
+                        Unity
+                    </div>
+                    <div class="skill-chip">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/visualstudio.svg" alt="Visual Studio">
+                        Visual Studio
+                    </div>
+                    <div class="skill-chip">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/visualstudiocode.svg" alt="VS Code">
+                        VS Code
+                    </div>
+                    <div class="skill-chip">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/penpot.svg" alt="Penpot">
+                        Penpot
+                    </div>
+                </div>
+            </div>
+
+            <div class="skills-row">
+                <span class="skills-category">Project Management</span>
+                <div class="skills-items">
+                    <div class="skill-chip">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/jira.svg" alt="Jira">
+                        Jira
+                    </div>
+                    <div class="skill-chip">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/trello.svg" alt="Trello">
+                        Trello
+                    </div>
+                    <div class="skill-chip">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/notion.svg" alt="Notion">
+                        Notion
+                    </div>
+                </div>
+            </div>
+
+            <div class="skills-row">
+                <span class="skills-category">Version Control</span>
+                <div class="skills-items">
+                    <div class="skill-chip">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub">
+                        GitHub
+                    </div>
+                    <div class="skill-chip">
+                        Tortoise SVN
+                    </div>
+                    <div class="skill-chip">
+                        Assembla
+                    </div>
+                </div>
+            </div>
+
+            <div class="skills-row">
+                <span class="skills-category">Art &amp; Design</span>
+                <div class="skills-items">
+                    <div class="skill-chip">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/adobephotoshop.svg" alt="Photoshop">
+                        Photoshop
+                    </div>
+                    <div class="skill-chip">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/adobeillustrator.svg" alt="Illustrator">
+                        Illustrator
+                    </div>
+                    <div class="skill-chip">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/adobepremierepro.svg" alt="Premiere Pro">
+                        Premiere Pro
+                    </div>
+                    <div class="skill-chip">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/autodesk.svg" alt="Autodesk Maya">
+                        Autodesk Maya
+                    </div>
+                </div>
+            </div>
+
+            <div class="skills-row">
+                <span class="skills-category">Productivity</span>
+                <div class="skills-items">
+                    <div class="skill-chip">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/google.svg" alt="Google Workspace">
+                        Google Workspace
+                    </div>
+                    <div class="skill-chip">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/microsoftoffice.svg" alt="Microsoft Office">
+                        Microsoft Office
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </section>
 
     <section class="contact-section" id="contact">
