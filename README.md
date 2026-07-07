@@ -5,6 +5,6 @@ This site showcases my game development projects, original assets, board game de
 
 Note: this page is copyrighted. If you ever try to plagiarize it or steal my content I will use my rights to the best of my ability.
 
-## 🌐 Live Website
+## 🌐 Live Website 
 
 Visit it here: [[https://frkncx.github.io]
