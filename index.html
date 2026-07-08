@@ -29,6 +29,22 @@
             padding: 20px;
             font-size: 1.2em;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: url('Banner.png') center center / cover no-repeat;
+            opacity: 0.22;
+            z-index: 0;
+        }
+
+        header > * {
+            position: relative;
+            z-index: 1;
         }
 
         .header-wrapper {
@@ -113,6 +129,19 @@
 
         .hover-container:hover .link-icon {
             display: block;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: transparent;
+            border: 1px solid #4FC3F7;
+            color: #4FC3F7;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9em;
+            padding: 6px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 10px auto 0;
         }
 
         nav {
@@ -273,6 +302,8 @@
 
         .contact-section {
             text-align: center;
+            padding: 40px 20px;
+            box-sizing: border-box;
         }
 
         .contact-section form {
@@ -471,6 +502,46 @@
                 margin: 0 auto 10px;
                 height: 60px;
             }
+
+            .nav-toggle {
+                display: inline-block;
+            }
+
+            nav {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+                margin-top: 12px;
+            }
+
+            nav.nav-open {
+                display: flex;
+            }
+
+            .dropdown-content {
+                display: block;
+                position: static;
+                background: transparent;
+                border: none;
+                box-shadow: none;
+                min-width: 0;
+                margin-top: 6px;
+                padding-left: 0;
+            }
+
+            .dropdown-content a {
+                color: #ccc;
+                padding: 4px 0;
+            }
+
+            .contact-section {
+                padding: 30px 20px;
+            }
+
+            .contact-section form {
+                max-width: 100%;
+            }
         }
 
         /* (PC) Only works with min width of 768px devices */
@@ -504,7 +575,8 @@
             <img src="logo.png" alt="Logo" class="logo">
             <div class="center-content">
                 <h1>Furkan Canturk</h1>
-                <nav>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰ Menu</button>
+                <nav id="mainNav">
                     <div class="nav-item">
                         <a href="#projects">Projects</a>
                     </div>
@@ -1162,9 +1234,8 @@
             <p style="font-size: 1.05em; margin-bottom: 8px;">
             Coursera - C# Programming for Unity Game Development Online Certificate (2023)
             </p>
-            <ul style="font-size: 0.95em; line-height: 1.9; color: #ccc; text-align: left; margin: 0;">
-                    <li>C# and Game Development on Unity
-https://www.coursera.org/account/accomplishments/specialization/JHXEBFYA74J2</li>
+            <ul style="font-size: 0.95em; line-height: 1.9; color: #ccc; text-align: left; margin: 0; overflow-wrap: anywhere;">
+                    <li>C# and Game Development on Unity — <a href="https://www.coursera.org/account/accomplishments/specialization/JHXEBFYA74J2" target="_blank" style="color: #4FC3F7;">View Certificate</a></li>
 
             </ul>
         </div>
@@ -1344,7 +1415,24 @@ https://www.coursera.org/account/accomplishments/specialization/JHXEBFYA74J2</li
     });
 })();
 
-// Only run on touch devices
+// ── Mobile nav toggle ─────────────────────────────────────────────────────
+(function () {
+    const toggle = document.getElementById('navToggle');
+    const nav = document.getElementById('mainNav');
+    if (!toggle || !nav) return;
+
+    toggle.addEventListener('click', () => {
+        nav.classList.toggle('nav-open');
+    });
+
+    // Close menu after tapping a link
+    nav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            nav.classList.remove('nav-open');
+        });
+    });
+})();
+
 if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
   document.querySelectorAll('.hover-container').forEach(container => {
     let timeout;
