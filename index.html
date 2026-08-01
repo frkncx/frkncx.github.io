@@ -4,7 +4,28 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Furkan Canturk | Portfolio</title>
+    <title>Furkan Canturk | Unity Gameplay Systems Programmer</title>
+    <meta name="description" content="Unity gameplay systems programmer. Networked multiplayer, AI behaviour, and simulation systems. 17 shipped games and a published Unity Asset Store package.">
+    <meta name="author" content="Furkan Canturk">
+    <meta name="theme-color" content="#0f0f0f">
+    <link rel="canonical" href="https://frkncx.github.io/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://frkncx.github.io/">
+    <meta property="og:site_name" content="Furkan Canturk">
+    <meta property="og:title" content="Furkan Canturk | Unity Gameplay Systems Programmer">
+    <meta property="og:description" content="Networked multiplayer, AI behaviour, and simulation systems. 17 shipped games, a published Photon Fusion 2 package on the Unity Asset Store, and a gamified fitness system on Amazon.">
+    <meta property="og:image" content="https://frkncx.github.io/Banner.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="480">
+    <meta property="og:image:alt" content="Furkan Canturk, Unity gameplay systems programmer">
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Furkan Canturk | Unity Gameplay Systems Programmer">
+    <meta name="twitter:description" content="Networked multiplayer, AI behaviour, and simulation systems. 17 shipped games and a published Unity Asset Store package.">
+    <meta name="twitter:image" content="https://frkncx.github.io/Banner.png">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -20,8 +41,9 @@
         }
 
         * {
-    box-sizing: border-box;      /* ensures padding/margin/border don't add extra width */
-}
+            box-sizing: border-box;
+            /* ensures padding/margin/border don't add extra width */
+        }
 
         header {
             background: #000;
@@ -41,7 +63,7 @@
             z-index: 1;
         }
 
-        header > * {
+        header>* {
             position: relative;
             z-index: 1;
         }
@@ -105,9 +127,22 @@
             filter: blur(2px);
         }
 
-        a:hover, button:hover {
-    cursor: url("CustomCursorHover.png"), pointer;
-}
+        .hover-container.tapped .link-icon {
+            display: block;
+        }
+
+        .hover-container.tapped .multi-link-overlay {
+            display: flex;
+        }
+
+        .hover-container.tapped .game-thumbnail {
+            filter: blur(2px);
+        }
+
+        a:hover,
+        button:hover {
+            cursor: url("CustomCursorHover.png"), pointer;
+        }
 
         .link-icon {
             position: absolute;
@@ -259,33 +294,83 @@
             scrollbar-width: thin;
             scrollbar-color: #4FC3F7 #2a2a2a;
         }
-        
-        .carousel .item {
-        flex: 0 0 auto;                  /* don't grow/shrink unexpectedly */
-        min-width: 280px;                /* minimum reasonable size */
-        max-width: 85vw;                 /* prevent going way beyond screen on mobile */
-        scroll-snap-align: start;
-        background: #2a2a2a;
-        border-radius: 8px;
-        padding: 20px;
-        box-sizing: border-box;
-        }
-        .item p {
-    font-family: 'Merriweather', serif;
-    font-size: 1.1em;
-    line-height: 1.7;
-    color: #ccc;
-}
 
-.carousel .item img:not(.platform-badge),
-.carousel .item video {
-    width: 100%;
-    height: auto;
-    max-width: 700px;                /* cap desktop size */
-    border-radius: 16px;
-    display: block;
-    margin: 0 auto;
-}
+        .carousel .item {
+            flex: 0 0 auto;
+            /* don't grow/shrink unexpectedly */
+            min-width: 280px;
+            /* minimum reasonable size */
+            max-width: 85vw;
+            /* prevent going way beyond screen on mobile */
+            scroll-snap-align: start;
+            background: #2a2a2a;
+            border-radius: 8px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .item p {
+            font-family: 'Merriweather', serif;
+            font-size: 1.1em;
+            line-height: 1.7;
+            color: #ccc;
+        }
+
+        /* Technical breakdown devlog link */
+        .tech-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            max-width: 300px;
+            width: 100%;
+            margin: 0 auto;
+            box-sizing: border-box;
+            padding: 8px 12px;
+            border: 1px solid #e8e8e8;
+            border-radius: 8px;
+            background: #222;
+            color: #e8e8e8;
+            font-size: 1em;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            text-decoration: none;
+            -webkit-tap-highlight-color: transparent;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+
+        .tech-link:hover,
+        .tech-link:focus-visible {
+            background: #e8e8e8;
+            color: #1a1a1a;
+            outline: none;
+        }
+
+        .tech-link::after {
+            content: "";
+            width: 7px;
+            height: 7px;
+            border-top: 2px solid currentColor;
+            border-right: 2px solid currentColor;
+            transform: rotate(45deg);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .tech-link {
+                transition: none;
+            }
+        }
+
+        .carousel .item img:not(.platform-badge),
+        .carousel .item video {
+            width: 100%;
+            height: auto;
+            max-width: 700px;
+            /* cap desktop size */
+            border-radius: 16px;
+            display: block;
+            margin: 0 auto;
+        }
 
         .item {
             min-width: 250px;
@@ -404,7 +489,7 @@
             align-items: center;
             gap: 16px;
             padding: 12px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .skills-category {
@@ -427,8 +512,8 @@
             display: flex;
             align-items: center;
             gap: 6px;
-            background: rgba(255,255,255,0.06);
-            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 6px;
             padding: 5px 10px;
             font-size: 0.85em;
@@ -447,7 +532,8 @@
         .thumb-wrap {
             position: relative;
             display: inline-block;
-            line-height: 0;         /* kill phantom gap under img */
+            line-height: 0;
+            /* kill phantom gap under img */
         }
 
         .platform-badges {
@@ -471,43 +557,44 @@
         }
 
         .multi-link-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgb(255, 255, 255);
-    display: none;
-    z-index: 10;
-    padding: 15px;
-    border-radius: 12px;
-    flex-direction: column;
-    gap: 12px;
-    align-items: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgb(255, 255, 255);
+            display: none;
+            z-index: 10;
+            padding: 15px;
+            border-radius: 12px;
+            flex-direction: column;
+            gap: 12px;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
 
-.hover-container:hover .multi-link-overlay {
-    display: flex;
-}
+        .hover-container:hover .multi-link-overlay {
+            display: flex;
+        }
 
         /* (MOBILE) Only works with Max width of 768px devices */
         @media (max-width: 768px) {
+
             .section#UI,
             .section#UI video {
-        max-width: 100% !important;
-        width: 100% !important;
-    }
+                max-width: 100% !important;
+                width: 100% !important;
+            }
 
-    .section#UI .item {
-        min-width: 80vw;
-        max-width: 86vw;
-    }
+            .section#UI .item {
+                min-width: 80vw;
+                max-width: 86vw;
+            }
 
-    .section#UI img {
-        width: 100%;
-        max-width: 700px;
-        height: auto;
-    }
+            .section#UI img {
+                width: 100%;
+                max-width: 700px;
+                height: auto;
+            }
 
             .logo {
                 display: none;
@@ -614,12 +701,10 @@
     <section class="top-section">
         <div class="top-description">
             <p style="max-width: 1000px; margin: 0 auto 20px; font-size: 1.15em; font-family: 'Merriweather', serif;">
-                I am Furkan Canturk, Unity game developer with 2 years of experience in C#, rapid
-                prototyping. Previously worked as intern at Phantom Compass.
+                Hi there, I am Furkan Canturk, a Unity gameplay systems programmer and designer with 2 years of experience in C# and rapid prototyping. Previously worked as an intern at Phantom Compass.
             </p>
             <p style="max-width: 1000px; margin: 0 auto 20px; font-size: 1.15em; font-family: 'Merriweather', serif;">
-                Shipped 14+ games and projects across game jams, simulations, and commercial assets; including a published 
-                networking asset on the Unity Asset Store, and Ordeal, a gamified fitness system available on Amazon and Gumroad.
+                I shipped 16 games and projects across game jams, simulations, and commercial assets, including a published networking asset on the Unity Asset Store and Ordeal, a gamified fitness system available on Amazon and Gumroad.
             </p>
         </div>
         <div class="contact-info-top">
@@ -636,12 +721,12 @@
             <a href="https://linktr.ee/mindentertainment" target="_blank">
                 <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linktree.svg" alt="Linktree"> Linktree
             </a>
-            
+
         </div>
-        <div class="contact-info-top"> 
+        <div class="contact-info-top">
             <a href="fcanturk_resume.pdf" download class="resume-btn">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
-                    <path d="M12 3v10.6l3.3-3.3 1.4 1.4L12 17.4l-4.7-4.7 1.4-1.4 3.3 3.3V3h2zM5 19h14v2H5v-2z"/>
+                    <path d="M12 3v10.6l3.3-3.3 1.4 1.4L12 17.4l-4.7-4.7 1.4-1.4 3.3 3.3V3h2zM5 19h14v2H5v-2z" />
                 </svg>
                 Download Resume
             </a>
@@ -650,6 +735,44 @@
 
     <section class="section" id="projects">
         <h2>Game Projects</h2>
+
+        <!-- ═══════════════════════════════════════════════
+             Ultimatum
+        ════════════════════════════════════════════════ -->
+        <div class="project-subsection" id="ultimatum">
+            <h3>Flagship</h3>
+            <div class="carousel">
+                <div class="item">
+                    <h3>Crown of Domination</h3>
+                    <div class="hover-container"
+                        style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                        <div class="thumb-wrap" data-preview>
+                            <img src="CrownOfDominationThumbnail.png" alt="Game Jam"
+                                class="game-thumbnail preview-thumb" style="width: 280px; border-radius: 16px;">
+                            <video class="preview-video" src="CrownOfDominationVID.mp4" loop muted playsinline
+                                style="width: 280px; border-radius: 16px; display: none;">
+                            </video>
+                            <div class="platform-badges">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg"
+                                    class="platform-badge" alt="itch.io">
+                            </div>
+                        </div>
+                        <a href="https://furkancx.itch.io/crown-of-domination" target="_blank" class="link-icon">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" alt="Itch.io">
+                            Itch.io
+                        </a>
+                    </div>
+                    <p style="max-width: 300px;">
+                        Social multiplayer RPG built on feudal power dynamics. 
+                        Players vote, conspire, and overthrow each other to claim the crown. 
+                        Two factions of up to four, built in Unity 6 on Photon Fusion 2 with 
+                        a host/client model: clients predict movement and attacks
+                        locally while the host remains the only authority on damage, roles, and crown ownership.
+                    </p>
+                    <!-- <a href="#" target="_blank" rel="noopener" class="tech-link">Technical Breakdown</a> -->
+                </div>
+            </div>
+        </div>
 
         <!-- ═══════════════════════════════════════════════
              Personal Game / Simulation Projects
@@ -662,14 +785,14 @@
                     <div class="hover-container"
                         style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
                         <div class="thumb-wrap" data-preview>
-                            <img src="OriginOfLifeThumbnail.png" alt="Passion Project" class="game-thumbnail preview-thumb"
-                                style="width: 280px; border-radius: 16px;">
-                            <video class="preview-video" src="OriginOfLifeVID.mp4"
-                                loop muted playsinline
+                            <img src="OriginOfLifeThumbnail.png" alt="Passion Project"
+                                class="game-thumbnail preview-thumb" style="width: 280px; border-radius: 16px;">
+                            <video class="preview-video" src="OriginOfLifeVID.mp4" loop muted playsinline
                                 style="width: 280px; border-radius: 16px; display: none;">
                             </video>
                             <div class="platform-badges">
-                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" class="platform-badge" alt="itch.io">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg"
+                                    class="platform-badge" alt="itch.io">
                             </div>
                         </div>
                         <a href="https://furkancx.itch.io/origin-of-life" target="_blank" class="link-icon">
@@ -678,7 +801,8 @@
                         </a>
                     </div>
                     <p style="max-width: 300px;">
-                        An interactive Evolution Simulation based on mutation and natural selection. Start with LUCA (Last Universal Common Ancestor), and use the environment parameters to
+                        An interactive Evolution Simulation based on mutation and natural selection. Start with LUCA
+                        (Last Universal Common Ancestor), and use the environment parameters to
                         diverge 3 Domains of life: Bacteria, Archaea, and eventually Eukarya.
                     </p>
                 </div>
@@ -687,14 +811,14 @@
                     <div class="hover-container"
                         style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
                         <div class="thumb-wrap" data-preview>
-                            <img src="TimeDilationSimulationThumbnail.png" alt="Passion Project" class="game-thumbnail preview-thumb"
-                                style="width: 280px; border-radius: 16px;">
-                            <video class="preview-video" src="TimeDilationVID.mp4"
-                                loop muted playsinline
+                            <img src="TimeDilationSimulationThumbnail.png" alt="Passion Project"
+                                class="game-thumbnail preview-thumb" style="width: 280px; border-radius: 16px;">
+                            <video class="preview-video" src="TimeDilationVID.mp4" loop muted playsinline
                                 style="width: 280px; border-radius: 16px; display: none;">
                             </video>
                             <div class="platform-badges">
-                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" class="platform-badge" alt="itch.io">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg"
+                                    class="platform-badge" alt="itch.io">
                             </div>
                         </div>
                         <a href="https://furkancx.itch.io/time-dilation" target="_blank" class="link-icon">
@@ -703,7 +827,8 @@
                         </a>
                     </div>
                     <p style="max-width: 300px;">
-                        An interactive Time Dilation Simulation based on Einstein's relativity. Explore special and general relativity inside your ship and watch time tick slower compared to Earth.
+                        An interactive Time Dilation Simulation based on Einstein's relativity. Explore special and
+                        general relativity inside your ship and watch time tick slower compared to Earth.
                     </p>
                 </div>
                 <div class="item">
@@ -711,14 +836,14 @@
                     <div class="hover-container"
                         style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
                         <div class="thumb-wrap" data-preview>
-                            <img src="EncyclopediaGalacticaThumbnail.png" alt="Passion Project" class="game-thumbnail preview-thumb"
-                                style="width: 280px; border-radius: 16px;">
-                            <video class="preview-video" src="EncyclopediaGalacticaVID.mp4"
-                                loop muted playsinline
+                            <img src="EncyclopediaGalacticaThumbnail.png" alt="Passion Project"
+                                class="game-thumbnail preview-thumb" style="width: 280px; border-radius: 16px;">
+                            <video class="preview-video" src="EncyclopediaGalacticaVID.mp4" loop muted playsinline
                                 style="width: 280px; border-radius: 16px; display: none;">
                             </video>
                             <div class="platform-badges">
-                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" class="platform-badge" alt="itch.io">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg"
+                                    class="platform-badge" alt="itch.io">
                             </div>
                         </div>
                         <a href="https://furkancx.itch.io/encyclopedia-galactica" target="_blank" class="link-icon">
@@ -727,9 +852,12 @@
                         </a>
                     </div>
                     <p style="max-width: 300px;">
-                        An interactive Drake Equation simulator inspired by Carl Sagan's Cosmos. Players adjust variables to estimate extraterrestrial civilizations across the Milky Way, 
+                        An interactive Drake Equation simulator inspired by Carl Sagan's Cosmos. Players adjust
+                        variables to estimate extraterrestrial civilizations across the Milky Way,
                         browsing a procedural catalogue of alien entries. Built in Unity with 3D space visuals.
                     </p>
+                    <a href="https://furkancx.itch.io/encyclopedia-galactica/devlog/1498993/in-designing-encyclopedia-galactica"
+                        target="_blank" rel="noopener" class="tech-link">Technical Breakdown</a>
                 </div>
                 <div class="item">
                     <h3>Memento Mori</h3>
@@ -738,12 +866,12 @@
                         <div class="thumb-wrap" data-preview>
                             <img src="MementoMoriThumbnail.png" alt="Game Jam" class="game-thumbnail preview-thumb"
                                 style="width: 280px; border-radius: 16px;">
-                                <video class="preview-video" src="MementoMoriVID.mp4"
-                                loop muted playsinline
+                            <video class="preview-video" src="MementoMoriVID.mp4" loop muted playsinline
                                 style="width: 280px; border-radius: 16px; display: none;">
-                                </video>
+                            </video>
                             <div class="platform-badges">
-                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" class="platform-badge" alt="itch.io">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg"
+                                    class="platform-badge" alt="itch.io">
                             </div>
                         </div>
                         <a href="https://furkancx.itch.io/memento-mori" target="_blank" class="link-icon">
@@ -752,7 +880,8 @@
                         </a>
                     </div>
                     <p style="max-width: 300px;">
-                        A game about death built in 10 hours, what does it feel like when a perspective permanently closes?
+                        A game about death built in 10 hours, what does it feel like when a perspective permanently
+                        closes?
                     </p>
                 </div>
                 <div class="item">
@@ -762,33 +891,35 @@
                         <div class="thumb-wrap" data-preview>
                             <img src="BlockBreakoutIcon.png" alt="Game Jam" class="game-thumbnail preview-thumb"
                                 style="width: 280px; border-radius: 16px;">
-                                <video class="preview-video" src="BlockBreakoutVID.mp4"
-                                loop muted playsinline
+                            <video class="preview-video" src="BlockBreakoutVID.mp4" loop muted playsinline
                                 style="width: 280px; border-radius: 16px; display: none;">
-                                </video>
+                            </video>
                             <div class="platform-badges">
-                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" class="platform-badge" alt="itch.io">
-                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/googleplay.svg" class="platform-badge" alt="Google Play">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg"
+                                    class="platform-badge" alt="itch.io">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/googleplay.svg"
+                                    class="platform-badge" alt="Google Play">
                             </div>
                         </div>
                         <div class="multi-link-overlay">
                             <a href="https://frkncx.itch.io/Block-Breakout" target="_blank"
-                               style="display: flex; align-items: center; gap: 6px; text-decoration: none; color: white; background: #444; padding: 8px 15px; border-radius: 8px; min-width: 160px; justify-content: center;">
-                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" alt="Itch.io"
-                                     style="width: 20px;">
+                                style="display: flex; align-items: center; gap: 6px; text-decoration: none; color: white; background: #444; padding: 8px 15px; border-radius: 8px; min-width: 160px; justify-content: center;">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg"
+                                    alt="Itch.io" style="width: 20px;">
                                 Itch.io
                             </a>
                             <a href="https://play.google.com/store/apps/details?id=com.TheMindsEntertainment.BlockBreakout"
-                               target="_blank"
-                               style="display: flex; align-items: center; gap: 6px; text-decoration: none; color: white; background: #444; padding: 8px 15px; border-radius: 8px; min-width: 160px; justify-content: center;">
+                                target="_blank"
+                                style="display: flex; align-items: center; gap: 6px; text-decoration: none; color: white; background: #444; padding: 8px 15px; border-radius: 8px; min-width: 160px; justify-content: center;">
                                 <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/googleplay.svg"
-                                     alt="Google Play" style="width: 20px;">
+                                    alt="Google Play" style="width: 20px;">
                                 Google Play
                             </a>
                         </div>
                     </div>
                     <p style="max-width: 300px;">
-                        My first video game project, an arcade-style game where players control a paddle to break blocks, meant to be published on Google Play Store to test.
+                        My first video game project, an arcade-style game where players control a paddle to break
+                        blocks, meant to be published on Google Play Store to test.
                     </p>
                 </div>
                 <div class="item">
@@ -796,14 +927,14 @@
                     <div class="hover-container"
                         style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
                         <div class="thumb-wrap" data-preview>
-                            <img src="RealmOfOctahedronThumbnail.png" alt="Game Jam" class="game-thumbnail preview-thumb"
-                                style="width: 280px; border-radius: 16px;">
-                                <video class="preview-video" src="RealmOfOctahedronVID.mp4"
-                                loop muted playsinline
+                            <img src="RealmOfOctahedronThumbnail.png" alt="Game Jam"
+                                class="game-thumbnail preview-thumb" style="width: 280px; border-radius: 16px;">
+                            <video class="preview-video" src="RealmOfOctahedronVID.mp4" loop muted playsinline
                                 style="width: 280px; border-radius: 16px; display: none;">
-                                </video>
+                            </video>
                             <div class="platform-badges">
-                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" class="platform-badge" alt="itch.io">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg"
+                                    class="platform-badge" alt="itch.io">
                             </div>
                         </div>
                         <a href="https://frkncx.itch.io/realm-of-octahedron" target="_blank" class="link-icon">
@@ -831,12 +962,12 @@
                         <div class="thumb-wrap" data-preview>
                             <img src="ErebusThumbnail.png" alt="Game Jam" class="game-thumbnail preview-thumb"
                                 style="width: 280px; border-radius: 16px;">
-                                <video class="preview-video" src="ErebusVID.mp4"
-                                loop muted playsinline
+                            <video class="preview-video" src="ErebusVID.mp4" loop muted playsinline
                                 style="width: 280px; border-radius: 16px; display: none;">
-                                </video>
+                            </video>
                             <div class="platform-badges">
-                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" class="platform-badge" alt="itch.io">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg"
+                                    class="platform-badge" alt="itch.io">
                             </div>
                         </div>
                         <a href="https://frkncx.itch.io/Erebus" target="_blank" class="link-icon">
@@ -845,35 +976,12 @@
                         </a>
                     </div>
                     <p style="max-width: 300px;">
-                        A 3D microscopic strategy game set inside a blood vessel. 
-                        Players command bacteria and white cells against opposing viral factions, 
-                        managing upgrades and unit economies. Custom assets modelled in Maya, built with Unity URP and Shader Graph.
+                        A 3D microscopic strategy game set inside a blood vessel.
+                        Players spend DNA to spawn bacteria and white cells against the opposing pathogenic faction,
+                        buying permanent upgrades and switching between a top-down command view and an interior 
+                        camera. Custom assets modelled in Maya, built in Unity URP.
                     </p>
-                </div>
-                <div class="item">
-                    <h3>Starcruiser</h3>
-                    <div class="hover-container"
-                        style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-                        <div class="thumb-wrap" data-preview>
-                            <img src="StarcruiserThumbnail.png" alt="Game Jam" class="game-thumbnail preview-thumb"
-                                style="width: 280px; border-radius: 16px;">
-                                <video class="preview-video" src="StarcruiserVID.mp4"
-                                loop muted playsinline
-                                style="width: 280px; border-radius: 16px; display: none;">
-                                </video>
-                            <div class="platform-badges">
-                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" class="platform-badge" alt="itch.io">
-                            </div>
-                        </div>
-                        <a href="https://furkancx.itch.io/starcruiser" target="_blank" class="link-icon">
-                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" alt="Itch.io">
-                            Itch.io
-                        </a>
-                    </div>
-                    <p style="max-width: 300px;">
-                        A 3D FPS/Strategy hybrid built in 35 hours for GMTK Game Jam 2026. 
-                        Players fly a jetpack, switch between three weapons: a single-shot rifle, an automatic rifle, and an AoE blaster. Build and defend Rigs to collect energy, and defend the Nexus against orcs and alien soldiers.
-                    </p>
+                    <!-- <a href="#" target="_blank" rel="noopener" class="tech-link">Technical Breakdown</a> -->
                 </div>
                 <div class="item">
                     <h3>Realms of Uldar<br>The Void Crystal</h3>
@@ -882,22 +990,52 @@
                         <div class="thumb-wrap" data-preview>
                             <img src="RealmsOfUldarThumbnail.png" alt="Game Jam" class="game-thumbnail preview-thumb"
                                 style="width: 280px; border-radius: 16px;">
-                                <video class="preview-video" src="RealmsOfUldarVid.mp4"
-                                loop muted playsinline
+                            <video class="preview-video" src="RealmsOfUldarVid.mp4" loop muted playsinline
                                 style="width: 280px; border-radius: 16px; display: none;">
-                                </video>
+                            </video>
                             <div class="platform-badges">
-                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" class="platform-badge" alt="itch.io">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg"
+                                    class="platform-badge" alt="itch.io">
                             </div>
                         </div>
-                        <a href="https://furkancx.itch.io/realms-of-uldar-void-crystal" target="_blank" class="link-icon">
+                        <a href="https://furkancx.itch.io/realms-of-uldar-void-crystal" target="_blank"
+                            class="link-icon">
                             <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" alt="Itch.io">
                             Itch.io
                         </a>
                     </div>
                     <p style="max-width: 300px;">
-                        2D Top-down Action RPG game jam made in Unity, where you level up, upgrade stats and abilities, 
+                        2D Top-down Action RPG game jam made in Unity, where you level up, upgrade stats and abilities,
                         and fight against the Void Crystal and enemies in fast paced combat.
+                    </p>
+                    <a href="https://furkancx.itch.io/realms-of-uldar-void-crystal/devlog/1533111/realms-of-uldar-post-mortem"
+                        target="_blank" rel="noopener" class="tech-link">Post Mortem</a>
+                </div>
+                <div class="item">
+                    <h3>Starcruiser</h3>
+                    <div class="hover-container"
+                        style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                        <div class="thumb-wrap" data-preview>
+                            <img src="StarcruiserThumbnail.png" alt="Game Jam" class="game-thumbnail preview-thumb"
+                                style="width: 280px; border-radius: 16px;">
+                            <video class="preview-video" src="StarcruiserVID.mp4" loop muted playsinline
+                                style="width: 280px; border-radius: 16px; display: none;">
+                            </video>
+                            <div class="platform-badges">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg"
+                                    class="platform-badge" alt="itch.io">
+                            </div>
+                        </div>
+                        <a href="https://furkancx.itch.io/starcruiser" target="_blank" class="link-icon">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" alt="Itch.io">
+                            Itch.io
+                        </a>
+                    </div>
+                    <p style="max-width: 300px;">
+                        A 3D FPS/Strategy hybrid built in 35 hours for GMTK Game Jam 2026.
+                        Players fly a jetpack, switch between three weapons: a single-shot rifle, an automatic rifle,
+                        and an AoE blaster. Build and defend Rigs to collect energy, and defend the Nexus against orcs
+                        and alien soldiers.
                     </p>
                 </div>
                 <div class="item">
@@ -907,12 +1045,12 @@
                         <div class="thumb-wrap" data-preview>
                             <img src="SledSlopeThumbnail.png" alt="Game Jam" class="game-thumbnail preview-thumb"
                                 style="width: 280px; border-radius: 16px;">
-                                <video class="preview-video" src="SledSlopeVID.mp4"
-                                loop muted playsinline
+                            <video class="preview-video" src="SledSlopeVID.mp4" loop muted playsinline
                                 style="width: 280px; border-radius: 16px; display: none;">
-                                </video>
+                            </video>
                             <div class="platform-badges">
-                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" class="platform-badge" alt="itch.io">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg"
+                                    class="platform-badge" alt="itch.io">
                             </div>
                         </div>
                         <a href="https://furkancx.itch.io/sled-slope" target="_blank" class="link-icon">
@@ -921,23 +1059,24 @@
                         </a>
                     </div>
                     <p style="max-width: 300px;">
-                        Group Game Jam about an endless platformer where you control your penguin on a sled and 
-                        overcome obstacles to reach as many houses as you can, and claim powerups! Made in Unity with a team of 3-4 people.
+                        Group Game Jam about an endless platformer where you control your penguin on a sled and
+                        overcome obstacles to reach as many houses as you can, and claim powerups! Made in Unity with a
+                        team of 3-4 people.
                     </p>
                 </div>
-                <div class="item">
+                <!-- <div class="item">
                     <h3>Day Night Massacre</h3>
                     <div class="hover-container"
                         style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
                         <div class="thumb-wrap" data-preview>
                             <img src="DayNightMassacreThumbnail.png" alt="Game Jam" class="game-thumbnail preview-thumb"
                                 style="width: 280px; border-radius: 16px;">
-                                <video class="preview-video" src="DayNightMassacreVID.mp4"
-                                loop muted playsinline
+                            <video class="preview-video" src="DayNightMassacreVID.mp4" loop muted playsinline
                                 style="width: 280px; border-radius: 16px; display: none;">
-                                </video>
+                            </video>
                             <div class="platform-badges">
-                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" class="platform-badge" alt="itch.io">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg"
+                                    class="platform-badge" alt="itch.io">
                             </div>
                         </div>
                         <a href="https://furkancx.itch.io/day-night-massacre" target="_blank" class="link-icon">
@@ -948,7 +1087,7 @@
                     <p style="max-width: 300px;">
                         A 4-hour 3D Game Jam made in Unity, where I made a shooter game with a day-night cycle
                     </p>
-                </div>
+                </div> -->
                 <div class="item">
                     <h3>Apollo</h3>
                     <div class="hover-container"
@@ -956,12 +1095,12 @@
                         <div class="thumb-wrap" data-preview>
                             <img src="ApolloThumbnail.png" alt="Game Jam" class="game-thumbnail preview-thumb"
                                 style="width: 280px; border-radius: 16px;">
-                                <video class="preview-video" src="ApolloVID.mp4"
-                                loop muted playsinline
+                            <video class="preview-video" src="ApolloVID.mp4" loop muted playsinline
                                 style="width: 280px; border-radius: 16px; display: none;">
-                                </video>
+                            </video>
                             <div class="platform-badges">
-                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" class="platform-badge" alt="itch.io">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg"
+                                    class="platform-badge" alt="itch.io">
                             </div>
                         </div>
                         <a href="https://frkncx.itch.io/Apollo" target="_blank" class="link-icon">
@@ -970,7 +1109,8 @@
                         </a>
                     </div>
                     <p style="max-width: 300px;">
-                        A Unity 2D local multiplayer PVP game with split-screen for two players on a single keyboard. Handles per-player input mapping and separate camera viewports.
+                        A Unity 2D local multiplayer PVP game with split-screen for two players on a single keyboard.
+                        Handles per-player input mapping and separate camera viewports.
                     </p>
                 </div>
                 <div class="item">
@@ -980,12 +1120,12 @@
                         <div class="thumb-wrap" data-preview>
                             <img src="OrionsMineThumbnail.png" alt="Game Jam" class="game-thumbnail preview-thumb"
                                 style="width: 280px; border-radius: 16px;">
-                            <video class="preview-video" src="OrionsMineVID.mp4"
-                                loop muted playsinline
+                            <video class="preview-video" src="OrionsMineVID.mp4" loop muted playsinline
                                 style="width: 280px; border-radius: 16px; display: none;">
                             </video>
                             <div class="platform-badges">
-                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" class="platform-badge" alt="itch.io">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg"
+                                    class="platform-badge" alt="itch.io">
                             </div>
                         </div>
                         <a href="https://frkncx.itch.io/Orions-Mine" target="_blank" class="link-icon">
@@ -1005,7 +1145,7 @@
              Portfolio Showcase
         ════════════════════════════════════════════════ -->
         <div class="project-subsection" id="portfolio-showcase">
-            <h3>Portfolio Showcase</h3>
+            <h3>AI and Level Prototypes</h3>
             <div class="carousel">
                 <div class="item">
                     <h3>Artemis</h3>
@@ -1014,12 +1154,12 @@
                         <div class="thumb-wrap" data-preview>
                             <img src="ArtemisThumbnail.png" alt="Game Jam" class="game-thumbnail preview-thumb"
                                 style="width: 280px; border-radius: 16px;">
-                            <video class="preview-video" src="ArtemisVID.mp4"
-                                loop muted playsinline
+                            <video class="preview-video" src="ArtemisVID.mp4" loop muted playsinline
                                 style="width: 280px; border-radius: 16px; display: none;">
                             </video>
                             <div class="platform-badges">
-                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" class="platform-badge" alt="itch.io">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg"
+                                    class="platform-badge" alt="itch.io">
                             </div>
                         </div>
                         <a href="https://frkncx.itch.io/artemis" target="_blank" class="link-icon">
@@ -1028,7 +1168,9 @@
                         </a>
                     </div>
                     <p style="max-width: 300px;">
-                        A 3D Unity project built around enemy AI. Enemy decision-making runs on state machine behaviours, and movement animation is driven by a blend tree that transitions between idle, walk, and run based on input.
+                        A 3D Unity project built around enemy AI. Enemy decision-making runs on state machine
+                        behaviours, and movement animation is driven by a blend tree that transitions between idle,
+                        walk, and run based on input.
                     </p>
                 </div>
                 <div class="item">
@@ -1038,12 +1180,12 @@
                         <div class="thumb-wrap" data-preview>
                             <img src="FactoryLevelThumbnail.png" alt="Game Jam" class="game-thumbnail preview-thumb"
                                 style="width: 280px; border-radius: 16px;">
-                            <video class="preview-video" src="FactoryLevelVID.mp4"
-                                loop muted playsinline
+                            <video class="preview-video" src="FactoryLevelVID.mp4" loop muted playsinline
                                 style="width: 280px; border-radius: 16px; display: none;">
                             </video>
                             <div class="platform-badges">
-                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" class="platform-badge" alt="itch.io">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg"
+                                    class="platform-badge" alt="itch.io">
                             </div>
                         </div>
                         <a href="https://frkncx.itch.io/factory-level" target="_blank" class="link-icon">
@@ -1062,12 +1204,12 @@
                         <div class="thumb-wrap" data-preview>
                             <img src="HauntedPalaceThumbnail.png" alt="Game Jam" class="game-thumbnail preview-thumb"
                                 style="width: 280px; border-radius: 16px;">
-                            <video class="preview-video" src="HauntedPalaceVID.mp4"
-                                loop muted playsinline
+                            <video class="preview-video" src="HauntedPalaceVID.mp4" loop muted playsinline
                                 style="width: 280px; border-radius: 16px; display: none;">
                             </video>
                             <div class="platform-badges">
-                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" class="platform-badge" alt="itch.io">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg"
+                                    class="platform-badge" alt="itch.io">
                             </div>
                         </div>
                         <a href="https://frkncx.itch.io/haunted-palace" target="_blank" class="link-icon">
@@ -1083,72 +1225,44 @@
             </div>
         </div>
 
-        <!-- ═══════════════════════════════════════════════
-             Ultimatum
-        ════════════════════════════════════════════════ -->
-        <div class="project-subsection" id="ultimatum">
-            <h3>Flagship</h3>
-            <div class="carousel">
-                <div class="item">
-                    <h3>Crown of Domination</h3>
-                    <div class="hover-container"
-                        style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-                        <div class="thumb-wrap" data-preview>
-                            <img src="CrownOfDominationThumbnail.png" alt="Game Jam" class="game-thumbnail preview-thumb"
-                                style="width: 280px; border-radius: 16px;">
-                            <video class="preview-video" src="CrownOfDominationVID.mp4"
-                                loop muted playsinline
-                                style="width: 280px; border-radius: 16px; display: none;">
-                            </video>
-                            <div class="platform-badges">
-                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" class="platform-badge" alt="itch.io">
-                            </div>
-                        </div>
-                        <a href="https://furkancx.itch.io/crown-of-domination" target="_blank" class="link-icon">
-                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" alt="Itch.io">
-                            Itch.io
-                        </a>
-                    </div>
-                    <p style="max-width: 300px;">
-                        Social multiplayer RPG built around feudal power dynamics. Players vote, conspire, and overthrow each other to claim the crown. 
-                        Features 8-player lobbies with bot fill. Built with Unity 6 and Photon Fusion 2.
-                    </p>
-                </div>
-            </div>
-        </div>
-
     </section>
 
     <section class="section" id="assets">
-        <h2>Assets</h2>
+        <h2>Commercial Work</h2>
         <div class="carousel">
             <div class="item">
                 <h3>Network and Lobby Setup</h3>
                 <div class="hover-container"
                     style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
                     <div class="thumb-wrap">
-                        <img src="NetworkAsset/ItchNetworkSetupThumbnail.png" alt="Network and Lobby Setup" class="game-thumbnail"
-                            style="width: 280px; border-radius: 16px;">
+                        <img src="NetworkAsset/ItchNetworkSetupThumbnail.png" alt="Network and Lobby Setup"
+                            class="game-thumbnail" style="width: 280px; border-radius: 16px;">
                         <div class="platform-badges">
-                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" class="platform-badge" alt="itch.io">
-                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/unity.svg" class="platform-badge" alt="Unity Asset Store">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg"
+                                class="platform-badge" alt="itch.io">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/unity.svg"
+                                class="platform-badge" alt="Unity Asset Store">
                         </div>
                     </div>
                     <div class="multi-link-overlay">
                         <a href="https://furkancx.itch.io/network-lobby-system-10" target="_blank"
-                           style="display: flex; align-items: center; gap: 6px; text-decoration: none; color: white; background: #444; padding: 8px 15px; border-radius: 8px; min-width: 160px; justify-content: center;">
-                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" alt="itch.io" style="width: 20px; filter: invert(100%);">
+                            style="display: flex; align-items: center; gap: 6px; text-decoration: none; color: white; background: #444; padding: 8px 15px; border-radius: 8px; min-width: 160px; justify-content: center;">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" alt="itch.io"
+                                style="width: 20px; filter: invert(100%);">
                             Itch.io
                         </a>
-                        <a href="https://assetstore.unity.com/packages/tools/network/network-setup-simple-lobby-system-373312" target="_blank"
-                           style="display: flex; align-items: center; gap: 6px; text-decoration: none; color: white; background: #444; padding: 8px 15px; border-radius: 8px; min-width: 160px; justify-content: center;">
-                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/unity.svg" alt="Unity" style="width: 20px; filter: invert(100%);">
-                            Unity Asset Store   
+                        <a href="https://assetstore.unity.com/packages/tools/network/network-setup-simple-lobby-system-373312"
+                            target="_blank"
+                            style="display: flex; align-items: center; gap: 6px; text-decoration: none; color: white; background: #444; padding: 8px 15px; border-radius: 8px; min-width: 160px; justify-content: center;">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/unity.svg" alt="Unity"
+                                style="width: 20px; filter: invert(100%);">
+                            Unity Asset Store
                         </a>
                     </div>
                 </div>
                 <p style="max-width: 270px;">
-                    A complete Photon Fusion 2 multiplayer network setup with lobby system: ready to integrate into your Unity project. Saves hours of boilerplate networking code.
+                    A complete Photon Fusion 2 multiplayer network setup with lobby system: ready to integrate into your
+                    Unity project. Saves hours of boilerplate networking code.
                 </p>
             </div>
             <div class="item">
@@ -1156,17 +1270,20 @@
                 <div class="hover-container"
                     style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
                     <div class="thumb-wrap">
-                        <img src="AIBehaviourAsset/AIBehaviorCoverItch.png" alt="AI Behavior Framework" class="game-thumbnail"
-                            style="width: 280px; border-radius: 16px;">
+                        <img src="AIBehaviourAsset/AIBehaviorCoverItch.png" alt="AI Behavior Framework"
+                            class="game-thumbnail" style="width: 280px; border-radius: 16px;">
                         <div class="platform-badges">
-                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" class="platform-badge" alt="itch.io">
-                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/unity.svg" class="platform-badge" alt="Unity Asset Store">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg"
+                                class="platform-badge" alt="itch.io">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/unity.svg"
+                                class="platform-badge" alt="Unity Asset Store">
                         </div>
                     </div>
                     <div class="multi-link-overlay">
                         <a href="https://furkancx.itch.io/player-npc-behaviour-framework" target="_blank"
-                           style="display: flex; align-items: center; gap: 6px; text-decoration: none; color: white; background: #444; padding: 8px 15px; border-radius: 8px; min-width: 160px; justify-content: center;">
-                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" alt="itch.io" style="width: 20px; filter: invert(100%);">
+                            style="display: flex; align-items: center; gap: 6px; text-decoration: none; color: white; background: #444; padding: 8px 15px; border-radius: 8px; min-width: 160px; justify-content: center;">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" alt="itch.io"
+                                style="width: 20px; filter: invert(100%);">
                             Itch.io
                         </a>
                         <!-- <a href="" target="_blank"
@@ -1177,7 +1294,8 @@
                     </div>
                 </div>
                 <p style="max-width: 270px;">
-                    A complete NavMesh NPC AI and Player controller setup: fully animated, ready to retarget onto any Humanoid or Mixamo model. Saves hours of AI behaviour and animation setup.
+                    A complete NavMesh NPC AI and Player controller setup: fully animated, ready to retarget onto any
+                    Humanoid or Mixamo model. Saves hours of AI behaviour and animation setup.
                 </p>
             </div>
             <div class="item">
@@ -1189,25 +1307,31 @@
                         <img src="OrdealThumbnail.png" alt="Network and Lobby Setup" class="game-thumbnail"
                             style="width: 280px; border-radius: 16px;">
                         <div class="platform-badges">
-                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/amazon.svg" class="platform-badge" alt="Amazon">
-                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/gumroad.svg" class="platform-badge" alt="Gumroad">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/amazon.svg"
+                                class="platform-badge" alt="Amazon">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/gumroad.svg"
+                                class="platform-badge" alt="Gumroad">
                         </div>
                     </div>
                     <div class="multi-link-overlay">
-                        <a href="https://www.amazon.ca/ORDEAL-Competitive-Fitness-Gamified-Beginner-ebook/dp/B0H38Z5ZN8/ref=sr_1_5?crid=26K5FTSVSHGX2&dib=eyJ2IjoiMSJ9.PasOZ5TDcVuKrpMG92M65I9AtG7DoCcm1VdukirnGOAKwldaCJlEqr1g-f4MCUlvsgLg4d8xwYr7dpJq5CBmOQUcDfchxWwbZpDZC6bwW_KMQ0Cim4MrsFoc2v8WM_jR.ZmKPi6pcKOc06-MZCn-S7xX8WrOBDwrmkMpM1pE90Hc&dib_tag=se&keywords=ordeal+fitness&qid=1780339473&sprefix=ordeal+fitness%2Caps%2C116&sr=8-5" target="_blank"
-                           style="display: flex; align-items: center; gap: 6px; text-decoration: none; color: white; background: #444; padding: 8px 15px; border-radius: 8px; min-width: 160px; justify-content: center;">
-                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/amazon.svg" alt="Amazon" style="width: 20px; filter: invert(100%);">
+                        <a href="https://www.amazon.ca/ORDEAL-Competitive-Fitness-Gamified-Beginner-ebook/dp/B0H38Z5ZN8/ref=sr_1_5?crid=26K5FTSVSHGX2&dib=eyJ2IjoiMSJ9.PasOZ5TDcVuKrpMG92M65I9AtG7DoCcm1VdukirnGOAKwldaCJlEqr1g-f4MCUlvsgLg4d8xwYr7dpJq5CBmOQUcDfchxWwbZpDZC6bwW_KMQ0Cim4MrsFoc2v8WM_jR.ZmKPi6pcKOc06-MZCn-S7xX8WrOBDwrmkMpM1pE90Hc&dib_tag=se&keywords=ordeal+fitness&qid=1780339473&sprefix=ordeal+fitness%2Caps%2C116&sr=8-5"
+                            target="_blank"
+                            style="display: flex; align-items: center; gap: 6px; text-decoration: none; color: white; background: #444; padding: 8px 15px; border-radius: 8px; min-width: 160px; justify-content: center;">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/amazon.svg" alt="Amazon"
+                                style="width: 20px; filter: invert(100%);">
                             Amazon
                         </a>
                         <a href="https://rulnarempire.gumroad.com/l/ordeal" target="_blank"
-                           style="display: flex; align-items: center; gap: 6px; text-decoration: none; color: white; background: #444; padding: 8px 15px; border-radius: 8px; min-width: 160px; justify-content: center;">
-                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/gumroad.svg" alt="Gumroad" style="width: 20px; filter: invert(100%);">
+                            style="display: flex; align-items: center; gap: 6px; text-decoration: none; color: white; background: #444; padding: 8px 15px; border-radius: 8px; min-width: 160px; justify-content: center;">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/gumroad.svg" alt="Gumroad"
+                                style="width: 20px; filter: invert(100%);">
                             Gumroad
                         </a>
                     </div>
                 </div>
                 <p style="max-width: 270px;">
-                    A gamified functional fitness progression system featuring 64 trials, difficulty tiers, achievement tracking, and seasonal scoring. Available on Gumroad and Amazon.                </p>
+                    A gamified functional fitness progression system featuring 64 trials, difficulty tiers, achievement
+                    tracking, and seasonal scoring. Available on Gumroad and Amazon. </p>
             </div>
         </div>
     </section>
@@ -1278,35 +1402,41 @@
         <p style="max-width: 800px; margin: 0 auto 20px; font-size: 1.15em; font-family: 'Merriweather', serif;">
         </p>
         <h3>Work Experience</h3>
-       <div style="max-width: 800px; margin: 0 auto 30px; font-family: 'Merriweather', serif; padding: 0 20px; text-align: left;">
+        <div
+            style="max-width: 800px; margin: 0 auto 30px; font-family: 'Merriweather', serif; padding: 0 20px; text-align: left;">
             <p style="font-size: 1.05em; margin-bottom: 8px;">
                 Phantom Compass – Junior Developer Internship (2026)
             </p>
             <ul style="font-size: 0.95em; line-height: 1.9; color: #ccc; text-align: left; margin: 0;">
                 <li>Assisted in the development of a playable game prototype in Unity</li>
-                <li>Implemented and revised game features, focusing on UI systems — deck UI canvas, TextMesh Pro fixes, and dynamic text with TextAnimator</li>
+                <li>Implemented and revised game features, focusing on UI systems — deck UI canvas, TextMesh Pro fixes,
+                    and dynamic text with TextAnimator</li>
                 <li>Developed and implemented a C# script to dynamically display assets in the deck view</li>
                 <li>Performed playtesting and tracked bugs using Tortoise SVN and Assembla</li>
                 <li>Contributed to tuning player flow and collaborated daily with a small remote team</li>
             </ul>
         </div>
         <h3>Education</h3>
-        <div style="max-width: 800px; margin: 0 auto 30px; font-family: 'Merriweather', serif; padding: 0 20px; text-align: left;">
+        <div
+            style="max-width: 800px; margin: 0 auto 30px; font-family: 'Merriweather', serif; padding: 0 20px; text-align: left;">
             <p style="font-size: 1.05em; margin-bottom: 8px;">
-            Conestoga College – Game Design Diploma (2024–2026) - Kitchener, ON
+                Conestoga College – Game Design Diploma (2024–2026) - Kitchener, ON
             </p>
             <ul style="font-size: 0.95em; line-height: 1.9; color: #ccc; text-align: left; margin: 0;">
-                    <li>Graduated with 3.94 GPA with High Distinction </li>
-                    <li>Completed weekly game jams focused on rapid prototyping. </li>
-                    <li>Built multiplayer systems in Unity using Netcode</li>
-                    <li>Utilized Trello and GitHub for team project management</li>
-                    <li>Applied UI/UX best practices to create effective player interfaces</li>
+                <li>Graduated with 3.94 GPA with High Distinction </li>
+                <li>Completed weekly game jams focused on rapid prototyping. </li>
+                <li>Built multiplayer systems in Unity using Netcode</li>
+                <li>Utilized Trello and GitHub for team project management</li>
+                <li>Applied UI/UX best practices to create effective player interfaces</li>
             </ul>
             <p style="font-size: 1.05em; margin-bottom: 8px;">
-            Coursera - C# Programming for Unity Game Development Online Certificate (2023)
+                Coursera - C# Programming for Unity Game Development Online Certificate (2023)
             </p>
-            <ul style="font-size: 0.95em; line-height: 1.9; color: #ccc; text-align: left; margin: 0; overflow-wrap: anywhere;">
-                    <li>C# and Game Development on Unity <a href="https://www.coursera.org/account/accomplishments/specialization/JHXEBFYA74J2" target="_blank" style="color: #ffffff;">View Certificate</a></li>
+            <ul
+                style="font-size: 0.95em; line-height: 1.9; color: #ccc; text-align: left; margin: 0; overflow-wrap: anywhere;">
+                <li>C# and Game Development on Unity <a
+                        href="https://www.coursera.org/account/accomplishments/specialization/JHXEBFYA74J2"
+                        target="_blank" style="color: #ffffff;">View Certificate</a></li>
 
             </ul>
         </div>
@@ -1332,11 +1462,13 @@
                         Unity
                     </div>
                     <div class="skill-chip">
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/visualstudio.svg" alt="Visual Studio">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/visualstudio.svg"
+                            alt="Visual Studio">
                         Visual Studio
                     </div>
                     <div class="skill-chip">
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/visualstudiocode.svg" alt="VS Code">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/visualstudiocode.svg"
+                            alt="VS Code">
                         VS Code
                     </div>
                     <div class="skill-chip">
@@ -1384,15 +1516,18 @@
                 <span class="skills-category">Art &amp; Design</span>
                 <div class="skills-items">
                     <div class="skill-chip">
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/adobephotoshop.svg" alt="Photoshop">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/adobephotoshop.svg"
+                            alt="Photoshop">
                         Photoshop
                     </div>
                     <div class="skill-chip">
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/adobeillustrator.svg" alt="Illustrator">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/adobeillustrator.svg"
+                            alt="Illustrator">
                         Illustrator
                     </div>
                     <div class="skill-chip">
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/adobepremierepro.svg" alt="Premiere Pro">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/adobepremierepro.svg"
+                            alt="Premiere Pro">
                         Premiere Pro
                     </div>
                     <div class="skill-chip">
@@ -1410,7 +1545,8 @@
                         Google Workspace
                     </div>
                     <div class="skill-chip">
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/microsoftoffice.svg" alt="Microsoft Office">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/microsoftoffice.svg"
+                            alt="Microsoft Office">
                         Microsoft Office
                     </div>
                 </div>
@@ -1445,84 +1581,85 @@
         </div>
     </footer>
 </body>
+
 </html>
 
 <script>
-// ── Video preview on dwell ────────────────────────────────────────────────
-(function () {
-    const DWELL_MS = 2000;
+    // ── Video preview on dwell ────────────────────────────────────────────────
+    (function () {
+        const DWELL_MS = 2000;
 
-    document.querySelectorAll('[data-preview]').forEach(wrap => {
-        const thumb = wrap.querySelector('.preview-thumb');
-        const video = wrap.querySelector('.preview-video');
-        let timer = null;
+        document.querySelectorAll('[data-preview]').forEach(wrap => {
+            const thumb = wrap.querySelector('.preview-thumb');
+            const video = wrap.querySelector('.preview-video');
+            let timer = null;
 
-        function showVideo() {
-            thumb.style.display = 'none';
-            video.style.display = 'block';
-            video.currentTime = 0;
-            video.play();
-        }
+            function showVideo() {
+                thumb.style.display = 'none';
+                video.style.display = 'block';
+                video.currentTime = 0;
+                video.play();
+            }
 
-        function showThumb() {
-            clearTimeout(timer);
-            timer = null;
-            video.pause();
-            video.style.display = 'none';
-            thumb.style.display = 'block';
-        }
+            function showThumb() {
+                clearTimeout(timer);
+                timer = null;
+                video.pause();
+                video.style.display = 'none';
+                thumb.style.display = 'block';
+            }
 
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    timer = setTimeout(showVideo, DWELL_MS);
-                } else {
-                    showThumb();
-                }
-            });
-        }, { threshold: 0.5 });
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        timer = setTimeout(showVideo, DWELL_MS);
+                    } else {
+                        showThumb();
+                    }
+                });
+            }, { threshold: 0.5 });
 
-        observer.observe(wrap);
-    });
-})();
-
-// ── Mobile nav toggle ─────────────────────────────────────────────────────
-(function () {
-    const toggle = document.getElementById('navToggle');
-    const nav = document.getElementById('mainNav');
-    if (!toggle || !nav) return;
-
-    toggle.addEventListener('click', () => {
-        nav.classList.toggle('nav-open');
-    });
-
-    // Close menu after tapping a link
-    nav.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            nav.classList.remove('nav-open');
+            observer.observe(wrap);
         });
-    });
-})();
+    })();
 
-if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+    // ── Mobile nav toggle ─────────────────────────────────────────────────────
+    (function () {
+        const toggle = document.getElementById('navToggle');
+        const nav = document.getElementById('mainNav');
+        if (!toggle || !nav) return;
+
+        toggle.addEventListener('click', () => {
+            nav.classList.toggle('nav-open');
+        });
+
+        // Close menu after tapping a link
+        nav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('nav-open');
+            });
+        });
+    })();
+
+    if (window.matchMedia('(hover: none)').matches) {
   document.querySelectorAll('.hover-container').forEach(container => {
-    let timeout;
-    
-    // Show overlay on touch start (like hover)
-    container.addEventListener('touchstart', (e) => {
-      // Don't preventDefault here – we still want scrolling to work
-      clearTimeout(timeout);
-      container.classList.add('force-hover');
-    }, { passive: true });
+    container.addEventListener('click', (e) => {
+      if (!container.classList.contains('tapped')) {
+        e.preventDefault();
+        e.stopPropagation();
+        document.querySelectorAll('.hover-container.tapped')
+                .forEach(c => c !== container && c.classList.remove('tapped'));
+        container.classList.add('tapped');
+      }
+      // already open: click falls through and the link navigates
+    });
+  });
 
-    // Hide after short delay if no tap inside overlay
-    container.addEventListener('touchend', (e) => {
-      timeout = setTimeout(() => {
-        container.classList.remove('force-hover');
-      }, 1200); // 1.2 seconds – enough to read & tap buttons
-    }, { passive: true });
-
-    // If user actually taps a link inside → let it navigate, no need to hide early
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.hover-container')) {
+      document.querySelectorAll('.hover-container.tapped')
+              .forEach(c => c.classList.remove('tapped'));
+    }
   });
 }
 </script>
