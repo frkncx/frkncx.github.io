@@ -226,6 +226,23 @@
             filter: invert(100%);
         }
 
+        .contact-info-top a.resume-btn {
+            background: #4FC3F7;
+            color: #000;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: bold;
+            font-size: 0.9em;
+            padding: 10px 20px;
+            border-radius: 6px;
+            gap: 8px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .contact-info-top a.resume-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(79, 195, 247, 0.4);
+        }
+
         .section {
             padding: 40px 20px;
             text-align: center;
@@ -582,14 +599,6 @@
                     <div class="nav-item">
                         <a href="#assets">Assets</a>
                     </div>
-                    <div class="nav-item dropdown">
-                        <a href="#works">Other Works</a>
-                        <div class="dropdown-content">
-                            <!--<a href="#art">Art Works</a>-->
-                            <a href="#UI">UI/UX Designs</a>
-                            <a href="#other">Other</a>
-                        </div>
-                    </div>
                     <div class="nav-item">
                         <a href="#aboutme">About Me</a>
                     </div>
@@ -606,7 +615,7 @@
         <div class="top-description">
             <p style="max-width: 1000px; margin: 0 auto 20px; font-size: 1.15em; font-family: 'Merriweather', serif;">
                 I am Furkan Canturk, Unity game developer with 2 years of experience in C#, rapid
-                prototyping, and UI/UX design. Previously worked as intern at Phantom Compass.
+                prototyping. Previously worked as intern at Phantom Compass.
             </p>
             <p style="max-width: 1000px; margin: 0 auto 20px; font-size: 1.15em; font-family: 'Merriweather', serif;">
                 Shipped 14+ games and projects across game jams, simulations, and commercial assets; including a published 
@@ -626,6 +635,15 @@
             </a>
             <a href="https://linktr.ee/mindentertainment" target="_blank">
                 <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linktree.svg" alt="Linktree"> Linktree
+            </a>
+            
+        </div>
+        <div class="contact-info-top"> 
+            <a href="fcanturk_resume.pdf" download class="resume-btn">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+                    <path d="M12 3v10.6l3.3-3.3 1.4 1.4L12 17.4l-4.7-4.7 1.4-1.4 3.3 3.3V3h2zM5 19h14v2H5v-2z"/>
+                </svg>
+                Download Resume
             </a>
         </div>
     </section>
@@ -804,8 +822,34 @@
              Game Jams
         ════════════════════════════════════════════════ -->
         <div class="project-subsection" id="game-jams">
-            <h3>Game Jams</h3>
+            <h3>Rapid Prototyping</h3>
             <div class="carousel">
+                <div class="item">
+                    <h3>Erebus</h3>
+                    <div class="hover-container"
+                        style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                        <div class="thumb-wrap" data-preview>
+                            <img src="ErebusThumbnail.png" alt="Game Jam" class="game-thumbnail preview-thumb"
+                                style="width: 280px; border-radius: 16px;">
+                                <video class="preview-video" src="ErebusVID.mp4"
+                                loop muted playsinline
+                                style="width: 280px; border-radius: 16px; display: none;">
+                                </video>
+                            <div class="platform-badges">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" class="platform-badge" alt="itch.io">
+                            </div>
+                        </div>
+                        <a href="https://frkncx.itch.io/Erebus" target="_blank" class="link-icon">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" alt="Itch.io">
+                            Itch.io
+                        </a>
+                    </div>
+                    <p style="max-width: 300px;">
+                        A 3D microscopic strategy game set inside a blood vessel. 
+                        Players command bacteria and white cells against opposing viral factions, 
+                        managing upgrades and unit economies. Custom assets modelled in Maya, built with Unity URP and Shader Graph.
+                    </p>
+                </div>
                 <div class="item">
                     <h3>Starcruiser</h3>
                     <div class="hover-container"
@@ -906,32 +950,6 @@
                     </p>
                 </div>
                 <div class="item">
-                    <h3>Erebus</h3>
-                    <div class="hover-container"
-                        style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
-                        <div class="thumb-wrap" data-preview>
-                            <img src="ErebusThumbnail.png" alt="Game Jam" class="game-thumbnail preview-thumb"
-                                style="width: 280px; border-radius: 16px;">
-                                <video class="preview-video" src="ErebusVID.mp4"
-                                loop muted playsinline
-                                style="width: 280px; border-radius: 16px; display: none;">
-                                </video>
-                            <div class="platform-badges">
-                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" class="platform-badge" alt="itch.io">
-                            </div>
-                        </div>
-                        <a href="https://frkncx.itch.io/Erebus" target="_blank" class="link-icon">
-                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/itchdotio.svg" alt="Itch.io">
-                            Itch.io
-                        </a>
-                    </div>
-                    <p style="max-width: 300px;">
-                        A 3D microscopic strategy game set inside a blood vessel. 
-                        Players command bacteria and white cells against opposing viral factions, 
-                        managing upgrades and unit economies. Custom assets modelled in Maya, built with Unity URP and Shader Graph.
-                    </p>
-                </div>
-                <div class="item">
                     <h3>Apollo</h3>
                     <div class="hover-container"
                         style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
@@ -952,7 +970,7 @@
                         </a>
                     </div>
                     <p style="max-width: 300px;">
-                        A game jam made with Unity 2D, that features local multiplayer PVP experience.
+                        A Unity 2D local multiplayer PVP game with split-screen for two players on a single keyboard. Handles per-player input mapping and separate camera viewports.
                     </p>
                 </div>
                 <div class="item">
@@ -1010,7 +1028,7 @@
                         </a>
                     </div>
                     <p style="max-width: 300px;">
-                        A 3D Unity Game Dedicated for Enemy AI Implementation Using State Machine Behaviour and Blend Tree
+                        A 3D Unity project built around enemy AI. Enemy decision-making runs on state machine behaviours, and movement animation is driven by a blend tree that transitions between idle, walk, and run based on input.
                     </p>
                 </div>
                 <div class="item">
@@ -1069,7 +1087,7 @@
              Ultimatum
         ════════════════════════════════════════════════ -->
         <div class="project-subsection" id="ultimatum">
-            <h3>Ultimatum</h3>
+            <h3>Flagship</h3>
             <div class="carousel">
                 <div class="item">
                     <h3>Crown of Domination</h3>
@@ -1194,7 +1212,7 @@
         </div>
     </section>
 
-    <section class="section" id="UI">
+    <!-- <section class="section" id="UI">
         <h2>UI/UX Designs</h2>
         <div class="carousel">
 
@@ -1222,9 +1240,9 @@
                 </p>
             </div>
         </div>
-    </section>
+    </section> -->
 
-    <section class="section" id="other">
+    <!-- <section class="section" id="other">
         <h2>Mechanics Showcases</h2>
         <div class="carousel">
             <div class="item">
@@ -1253,7 +1271,7 @@
                 </p>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <section class="aboutme-section" id="aboutme">
         <h2>About Me</h2>
@@ -1415,7 +1433,7 @@
     <footer>
         <p>© 2026 All Assets Made by Furkan Canturk.</p>
         <div class="social-icons">
-            <a href="mindentertainmentco@gmail.com">
+            <a href="mailto:mindentertainmentco@gmail.com">
                 <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/gmail.svg" alt="Email">
             </a>
             <a href="https://www.linkedin.com/in/furkan-canturk-a456b4337/" target="_blank">
