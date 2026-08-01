@@ -392,6 +392,11 @@
             padding: 20px;
         }
 
+        /* Work Experience / Education text blocks */
+        .about-block {
+            padding: 0 20px;
+        }
+
         .download-links a,
         .aboutme-section a {
             display: inline-block;
@@ -636,6 +641,30 @@
             .dropdown-content a {
                 color: #ccc;
                 padding: 4px 0;
+            }
+
+            /* Pull the text blocks back to the left edge instead of stacking indents */
+            .aboutme-section {
+                padding: 20px 12px;
+            }
+
+            .about-block {
+                padding: 0;
+            }
+
+            .about-block ul {
+                padding-left: 20px;
+            }
+
+            /* Stack the category label above its chips instead of beside them */
+            .skills-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .skills-category {
+                min-width: 0;
             }
 
             .contact-section {
@@ -1399,48 +1428,10 @@
     </section> -->
 
     <section class="aboutme-section" id="aboutme">
+        
         <h2>About Me</h2>
         <p style="max-width: 800px; margin: 0 auto 20px; font-size: 1.15em; font-family: 'Merriweather', serif;">
         </p>
-        <h3>Work Experience</h3>
-        <div
-            style="max-width: 800px; margin: 0 auto 30px; font-family: 'Merriweather', serif; padding: 0 20px; text-align: left;">
-            <p style="font-size: 1.05em; margin-bottom: 8px;">
-                Phantom Compass – Junior Developer Internship (2026)
-            </p>
-            <ul style="font-size: 0.95em; line-height: 1.9; color: #ccc; text-align: left; margin: 0;">
-                <li>Assisted in the development of a playable game prototype in Unity</li>
-                <li>Implemented and revised game features, focusing on UI systems — deck UI canvas, TextMesh Pro fixes,
-                    and dynamic text with TextAnimator</li>
-                <li>Developed and implemented a C# script to dynamically display assets in the deck view</li>
-                <li>Performed playtesting and tracked bugs using Tortoise SVN and Assembla</li>
-                <li>Contributed to tuning player flow and collaborated daily with a small remote team</li>
-            </ul>
-        </div>
-        <h3>Education</h3>
-        <div
-            style="max-width: 800px; margin: 0 auto 30px; font-family: 'Merriweather', serif; padding: 0 20px; text-align: left;">
-            <p style="font-size: 1.05em; margin-bottom: 8px;">
-                Conestoga College – Game Design Diploma (2024–2026) - Kitchener, ON
-            </p>
-            <ul style="font-size: 0.95em; line-height: 1.9; color: #ccc; text-align: left; margin: 0;">
-                <li>Graduated with 3.94 GPA with High Distinction </li>
-                <li>Completed weekly game jams focused on rapid prototyping. </li>
-                <li>Built multiplayer systems in Unity using Netcode</li>
-                <li>Utilized Trello and GitHub for team project management</li>
-                <li>Applied UI/UX best practices to create effective player interfaces</li>
-            </ul>
-            <p style="font-size: 1.05em; margin-bottom: 8px;">
-                Coursera - C# Programming for Unity Game Development Online Certificate (2023)
-            </p>
-            <ul
-                style="font-size: 0.95em; line-height: 1.9; color: #ccc; text-align: left; margin: 0; overflow-wrap: anywhere;">
-                <li>C# and Game Development on Unity <a
-                        href="https://www.coursera.org/account/accomplishments/specialization/JHXEBFYA74J2"
-                        target="_blank" style="color: #ffffff;">View Certificate</a></li>
-
-            </ul>
-        </div>
         <h3>Skills</h3>
         <div style="max-width: 800px; margin: 0 auto 30px;">
 
@@ -1554,7 +1545,47 @@
             </div>
 
         </div>
-    </section>
+
+        <h3>Work Experience</h3>
+        <div class="about-block"
+            style="max-width: 800px; margin: 0 auto 30px; font-family: 'Merriweather', serif; text-align: left;">
+            <p style="font-size: 1.05em; margin-bottom: 8px;">
+                Phantom Compass – Junior Developer Internship (2026)
+            </p>
+            <ul style="font-size: 0.95em; line-height: 1.9; color: #ccc; text-align: left; margin: 0;">
+                <li>Assisted in the development of a playable game prototype in Unity</li>
+                <li>Implemented and revised game features, focusing on UI systems — deck UI canvas, TextMesh Pro fixes,
+                    and dynamic text with TextAnimator</li>
+                <li>Developed and implemented a C# script to dynamically display assets in the deck view</li>
+                <li>Performed playtesting and tracked bugs using Tortoise SVN and Assembla</li>
+                <li>Contributed to tuning player flow and collaborated daily with a small remote team</li>
+            </ul>
+        </div>
+        <h3>Education</h3>
+        <div class="about-block"
+            style="max-width: 800px; margin: 0 auto 30px; font-family: 'Merriweather', serif; text-align: left;">
+            <p style="font-size: 1.05em; margin-bottom: 8px;">
+                Conestoga College – Game Design Diploma (2024–2026) - Kitchener, ON
+            </p>
+            <ul style="font-size: 0.95em; line-height: 1.9; color: #ccc; text-align: left; margin: 0;">
+                <li>Graduated with 3.94 GPA with High Distinction </li>
+                <li>Completed weekly game jams focused on rapid prototyping. </li>
+                <li>Built multiplayer systems in Unity using Netcode</li>
+                <li>Utilized Trello and GitHub for team project management</li>
+                <li>Applied UI/UX best practices to create effective player interfaces</li>
+            </ul>
+            <p style="font-size: 1.05em; margin-bottom: 8px;">
+                Coursera - C# Programming for Unity Game Development Online Certificate (2023)
+            </p>
+            <ul
+                style="font-size: 0.95em; line-height: 1.9; color: #ccc; text-align: left; margin: 0; overflow-wrap: anywhere;">
+                <li>C# and Game Development on Unity <a
+                        href="https://www.coursera.org/account/accomplishments/specialization/JHXEBFYA74J2"
+                        target="_blank" style="color: #ffffff;">View Certificate</a></li>
+
+            </ul>
+        </div>
+        
 
     <section class="contact-section" id="contact">
         <h2 style="text-align: center;">Send a Message</h2>
