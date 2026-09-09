@@ -1,0 +1,24 @@
+---
+layout: default
+title: Devlogs
+description: Technical breakdowns and post mortems from Furkan Canturk's Unity projects.
+---
+
+<div class="devlog-wrap">
+    <h2>Devlogs</h2>
+
+    <div class="devlog-list">
+        {%- for post in site.posts %}
+        <a class="devlog-card" href="{{ post.url }}">
+            <div class="devlog-meta">
+                <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
+                {%- if post.project %} &middot; {{ post.project }}{% endif %}
+            </div>
+            <h3>{{ post.title }}</h3>
+            {%- if post.topic %}<span class="devlog-topic">{{ post.topic }}</span>{% endif %}
+            <p>{{ post.lede }}</p>
+            <span class="devlog-more">Read</span>
+        </a>
+        {%- endfor %}
+    </div>
+</div>

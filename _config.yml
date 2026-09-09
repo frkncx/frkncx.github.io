@@ -1,0 +1,14 @@
+title: Furkan Canturk
+email: mindentertainmentco@gmail.com
+url: https://frkncx.github.io
+baseurl: ""
+
+markdown: kramdown
+permalink: /devlogs/:title/
+
+exclude:
+  - Archive/
+  - PSD/
+  - README.md
+  - Furkan_Portfolio_Pack/
+  - "Blue Modern Front End Developer Business Card/"

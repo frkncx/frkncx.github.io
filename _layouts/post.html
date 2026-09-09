@@ -1,0 +1,30 @@
+---
+layout: default
+---
+<article class="post-wrap">
+    <a class="back-link" href="/devlogs/">Back</a>
+
+    <h1>{{ page.title }}</h1>
+
+    <div class="devlog-meta">
+        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+        {%- if page.project %} &middot; {{ page.project }}{% endif %}
+    </div>
+
+    {%- if page.topic %}
+    <span class="devlog-topic">{{ page.topic }}</span>
+    {%- endif %}
+
+    <div class="post-body">
+        {{ content }}
+    </div>
+
+    <div class="post-footer">
+        {%- if page.original_url %}
+        Originally posted on <a href="{{ page.original_url }}" target="_blank" rel="noopener">itch.io</a>.
+        {%- endif %}
+        {%- if page.play_url %}
+        &middot; <a href="{{ page.play_url }}" target="_blank" rel="noopener">Play {{ page.project }}</a>
+        {%- endif %}
+    </div>
+</article>
