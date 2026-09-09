@@ -2,7 +2,7 @@
 title: "In Designing Encyclopedia Galactica"
 date: 2026-04-25
 project: Encyclopedia Galactica
-topic: Unity Engineering
+topic: Unity Devlogs
 lede: >-
   This has been one of my proudest projects made in Unity. Relatively
   straightforward, but hopefully something that will shine in my catalogue for
@@ -11,7 +11,7 @@ image: /EncyclopediaGalacticaThumbnail.png
 original_url: https://furkancx.itch.io/encyclopedia-galactica/devlog/1498993/in-designing-encyclopedia-galactica
 play_url: https://furkancx.itch.io/encyclopedia-galactica
 description: >-
-  How Encyclopedia Galactica was built in Unity — Milky Way mesh and colliders,
+  How Encyclopedia Galactica was built in Unity: Milky Way mesh and colliders,
   scientifically weighted star classification, scriptable-object civilization
   catalogues, and the Drake Equation panel.
 ---

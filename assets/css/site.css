@@ -808,7 +808,7 @@
 
 .devlog-more {
     font-size: 0.8em;
-    color: #4FC3F7;
+    color: #e8e8e8;
 }
 
 .devlog-topic {
@@ -833,17 +833,17 @@
     display: inline-block;
     font-family: 'Orbitron', sans-serif;
     font-size: 0.85em;
-    color: #4FC3F7;
+    color: #e8e8e8;
     text-decoration: none;
-    border: 1px solid #4FC3F7;
+    border: 1px solid #e8e8e8;
     border-radius: 6px;
     padding: 6px 16px;
     cursor: url("/CustomCursorHover.png"), pointer;
 }
 
 .back-link:hover {
-    background: #4FC3F7;
-    color: #000;
+    background: #e8e8e8;
+    color: #1a1a1a;
 }
 
 .post-wrap h1 {
@@ -924,6 +924,22 @@
         gap: 12px;
     }
 
+    /* Homepage strip stays a swipeable row */
+    #devlogs .devlog-list {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 8px;
+        scrollbar-width: thin;
+        scrollbar-color: #4FC3F7 #2a2a2a;
+    }
+
+    #devlogs .devlog-card {
+        flex: 0 0 78vw;
+        scroll-snap-align: start;
+    }
+
     .devlog-card {
         padding: 16px;
     }
@@ -968,27 +984,85 @@
 
 /* ── Devlog cards slide sideways on phones ───────────────────────────── */
 @media (max-width: 768px) {
-    .devlog-list {
-        display: flex;
-        grid-template-columns: none;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        gap: 12px;
-        padding-bottom: 8px;
-        scrollbar-width: thin;
-        scrollbar-color: #4FC3F7 #2a2a2a;
-    }
-
-    .devlog-card {
-        flex: 0 0 78vw;
-        scroll-snap-align: start;
-    }
-
     .devlog-card p {
         display: -webkit-box;
         -webkit-line-clamp: 4;
         -webkit-box-orient: vertical;
         overflow: hidden;
+    }
+}
+
+/* ── Devlogs index: paged grid ───────────────────────────────────────── */
+.devlog-list--grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+
+.devlog-wrap:has(.devlog-list--grid) {
+    max-width: 1200px;
+}
+
+.devlog-list--grid .devlog-card p {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.devlog-card {
+    min-width: 0;
+}
+
+.devlog-thumb {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 6px;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.devlog-card.is-hidden {
+    display: none;
+}
+
+.devlog-pager {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 30px;
+}
+
+.devlog-pager button {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.8em;
+    min-width: 38px;
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: 1px solid #e8e8e8;
+    background: #222;
+    color: #e8e8e8;
+    cursor: url("/CustomCursorHover.png"), pointer;
+}
+
+.devlog-pager button:hover:not(:disabled) {
+    background: #e8e8e8;
+    color: #1a1a1a;
+}
+
+.devlog-pager button[aria-current="true"] {
+    background: #e8e8e8;
+    border-color: #e8e8e8;
+    color: #1a1a1a;
+}
+
+.devlog-pager button:disabled {
+    opacity: 0.4;
+    cursor: default;
+}
+
+@media (max-width: 520px) {
+    .devlog-list--grid {
+        grid-template-columns: 1fr;
     }
 }

@@ -162,3 +162,48 @@
         desc.after(btn);
     });
 })();
+
+// ── Devlogs index: 16 per page, numbered pager ────────────────────────────
+(function () {
+    const PER_PAGE = 16;   // 4 x 4
+    const grid = document.getElementById('devlogGrid');
+    const pager = document.getElementById('devlogPager');
+    if (!grid || !pager) return;
+
+    const cards = [...grid.querySelectorAll('.devlog-card')];
+    let page = 1;
+
+    function visible() {
+        return cards;   // filtering hooks in here later
+    }
+
+    function render() {
+        const items = visible();
+        const pages = Math.max(1, Math.ceil(items.length / PER_PAGE));
+        page = Math.min(page, pages);
+
+        cards.forEach(c => c.classList.add('is-hidden'));
+        items.slice((page - 1) * PER_PAGE, page * PER_PAGE)
+            .forEach(c => c.classList.remove('is-hidden'));
+
+        pager.hidden = pages < 2;
+        if (pager.hidden) return;
+
+        pager.replaceChildren();
+        const add = (label, target, opts = {}) => {
+            const b = document.createElement('button');
+            b.type = 'button';
+            b.textContent = label;
+            if (opts.current) b.setAttribute('aria-current', 'true');
+            if (opts.disabled) b.disabled = true;
+            else b.addEventListener('click', () => { page = target; render(); grid.scrollIntoView({ block: 'start' }); });
+            pager.append(b);
+        };
+
+        add('Prev', page - 1, { disabled: page === 1 });
+        for (let i = 1; i <= pages; i++) add(String(i), i, { current: i === page });
+        add('Next', page + 1, { disabled: page === pages });
+    }
+
+    render();
+})();

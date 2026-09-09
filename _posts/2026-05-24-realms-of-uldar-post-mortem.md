@@ -2,7 +2,7 @@
 title: "Realms of Uldar - Post Mortem"
 date: 2026-05-24
 project: "Realms of Uldar: Void Crystal"
-topic: Unity Engineering
+topic: Unity Devlogs
 lede: >-
   Realms of Uldar: Void Crystal is a fast-paced top-down action RPG built for a
   game jam and a passionate idea, roughly in 5 days, and around 27 hours of
@@ -11,7 +11,7 @@ image: /RealmsOfUldarThumbnail.png
 original_url: https://furkancx.itch.io/realms-of-uldar-void-crystal/devlog/1533111/realms-of-uldar-post-mortem
 play_url: https://furkancx.itch.io/realms-of-uldar-void-crystal
 description: >-
-  Post mortem on Realms of Uldar: Void Crystal — what went right with game
+  Post mortem on Realms of Uldar: Void Crystal. What went right with game
   feel, 2D URP lighting and progression, what went wrong with animation and
   balance, and what comes next.
 ---

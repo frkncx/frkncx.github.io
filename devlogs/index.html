@@ -7,9 +7,14 @@ description: Technical breakdowns and post mortems from Furkan Canturk's Unity p
 <div class="devlog-wrap">
     <h2>Devlogs</h2>
 
-    <div class="devlog-list">
+    <div class="devlog-list devlog-list--grid" id="devlogGrid">
         {%- for post in site.posts %}
-        <a class="devlog-card" href="{{ post.url }}">
+        <a class="devlog-card" data-topic="{{ post.topic | slugify }}"
+            href="{% if post.external_url %}{{ post.external_url }}{% else %}{{ post.url }}{% endif %}"
+            {% if post.external_url %}target="_blank" rel="noopener"{% endif %}>
+            {%- if post.thumbnail %}
+            <img class="devlog-thumb" src="{{ post.thumbnail }}" alt="{{ post.title }}" loading="lazy">
+            {%- endif %}
             <div class="devlog-meta">
                 <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
                 {%- if post.project %} &ndash; {{ post.project }}{% endif %}
@@ -17,8 +22,10 @@ description: Technical breakdowns and post mortems from Furkan Canturk's Unity p
             <h3>{{ post.title }}</h3>
             {%- if post.topic %}<span class="devlog-topic">{{ post.topic }}</span>{% endif %}
             <p>{{ post.lede }}</p>
-            <span class="devlog-more">Read</span>
+            <span class="devlog-more">{{ post.link_label | default: "Read" }}</span>
         </a>
         {%- endfor %}
     </div>
+
+    <nav class="devlog-pager" id="devlogPager" aria-label="Devlog pages" hidden></nav>
 </div>

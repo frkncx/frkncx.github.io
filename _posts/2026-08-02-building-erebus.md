@@ -2,7 +2,7 @@
 title: "In Building Erebus"
 date: 2026-08-02
 project: Erebus
-topic: Unity Engineering
+topic: Unity Devlogs
 lede: >-
   Erebus was supposed to be one of the weekly jams in my Game Design program.
   It took me 2 days, and around 12+ hours to build it, relatively short for a
