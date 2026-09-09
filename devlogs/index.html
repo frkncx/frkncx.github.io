@@ -12,7 +12,7 @@ description: Technical breakdowns and post mortems from Furkan Canturk's Unity p
         <a class="devlog-card" href="{{ post.url }}">
             <div class="devlog-meta">
                 <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time>
-                {%- if post.project %} &middot; {{ post.project }}{% endif %}
+                {%- if post.project %} &ndash; {{ post.project }}{% endif %}
             </div>
             <h3>{{ post.title }}</h3>
             {%- if post.topic %}<span class="devlog-topic">{{ post.topic }}</span>{% endif %}

@@ -8,7 +8,7 @@ layout: default
 
     <div class="devlog-meta">
         <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
-        {%- if page.project %} &middot; {{ page.project }}{% endif %}
+        {%- if page.project %} &ndash; {{ page.project }}{% endif %}
     </div>
 
     {%- if page.topic %}
@@ -24,7 +24,7 @@ layout: default
         Originally posted on <a href="{{ page.original_url }}" target="_blank" rel="noopener">itch.io</a>.
         {%- endif %}
         {%- if page.play_url %}
-        &middot; <a href="{{ page.play_url }}" target="_blank" rel="noopener">Play {{ page.project }}</a>
+        &ndash; <a href="{{ page.play_url }}" target="_blank" rel="noopener">Play {{ page.project }}</a>
         {%- endif %}
     </div>
 </article>

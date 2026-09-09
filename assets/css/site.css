@@ -1,3 +1,7 @@
+        html {
+            overflow-x: hidden;
+        }
+
         body {
             margin: 0;
             font-family: 'Orbitron', sans-serif;
@@ -234,6 +238,8 @@
             text-decoration: none;
             color: inherit;
             font-size: 0.95em;
+            min-width: 0;
+            overflow-wrap: anywhere;
         }
 
         .contact-info-top img {
@@ -283,11 +289,25 @@
         }
 
         .carousel .item {
+            min-width: 0;
             background: #2a2a2a;
             color: #fff;
             border-radius: 8px;
             padding: 20px;
             box-sizing: border-box;
+        }
+
+        .carousel .item h3 {
+            overflow-wrap: anywhere;
+        }
+
+        /* Role / duration line above each project description */
+        .project-meta {
+            font-family: 'Merriweather', serif;
+            font-size: 0.82em;
+            color: #9a9a9a;
+            letter-spacing: 0.03em;
+            margin: 0 0 6px;
         }
 
         .item p {
@@ -464,9 +484,7 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-bottom: 10px;
-            border-left: 4px solid #e0e0e0;
-            padding-left: 12px;
-            text-align: left;
+            text-align: center;
             padding-top: 4px;
             padding-bottom: 4px;
         }
@@ -635,6 +653,55 @@
                 gap: 10px;
             }
 
+            /* Two smaller cards per row instead of one tall column */
+            .carousel,
+            #ultimatum .carousel {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                gap: 12px;
+                padding: 12px 0;
+            }
+
+            .carousel .item {
+                padding: 12px;
+            }
+
+            .item p {
+                font-size: 0.95em;
+                line-height: 1.6;
+            }
+
+            .project-meta {
+                font-size: 0.75em;
+            }
+
+            .carousel .item h3 {
+                font-size: 0.95em;
+            }
+
+            /* Collapsible section headings */
+            .project-subsection h3.is-toggle {
+                cursor: pointer;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .project-subsection h3.is-toggle::after {
+                content: "-";
+                font-size: 1.1em;
+                line-height: 1;
+                padding-right: 4px;
+            }
+
+            .project-subsection.is-collapsed h3.is-toggle::after {
+                content: "+";
+            }
+
+            .project-subsection.is-collapsed .carousel {
+                display: none;
+            }
+
             .about-block {
                 padding: 0;
             }
@@ -699,7 +766,9 @@
 
 .devlog-list {
     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 20px;
+    align-items: start;
 }
 
 .devlog-card {
@@ -847,4 +916,79 @@
 
 .post-footer a {
     color: #4FC3F7;
+}
+
+@media (max-width: 768px) {
+    .devlog-list {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .devlog-card {
+        padding: 16px;
+    }
+
+    .devlog-card h3 {
+        font-size: 1em;
+    }
+
+    .devlog-card p {
+        font-size: 0.9em;
+        line-height: 1.6;
+    }
+
+    .devlog-meta,
+    .devlog-topic {
+        font-size: 0.85em;
+    }
+
+    .devlog-wrap,
+    .post-wrap {
+        padding: 24px 16px;
+    }
+}
+
+/* ── Long card descriptions collapse behind a toggle ─────────────────── */
+.carousel .item p.desc-clamped {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.desc-toggle {
+    font-family: 'Orbitron', sans-serif;
+    cursor: url("/CustomCursorHover.png"), pointer;
+    margin-bottom: 10px;
+}
+
+.desc-toggle::after {
+    content: none;
+}
+
+/* ── Devlog cards slide sideways on phones ───────────────────────────── */
+@media (max-width: 768px) {
+    .devlog-list {
+        display: flex;
+        grid-template-columns: none;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 12px;
+        padding-bottom: 8px;
+        scrollbar-width: thin;
+        scrollbar-color: #4FC3F7 #2a2a2a;
+    }
+
+    .devlog-card {
+        flex: 0 0 78vw;
+        scroll-snap-align: start;
+    }
+
+    .devlog-card p {
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
 }
