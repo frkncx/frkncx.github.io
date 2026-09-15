@@ -85,6 +85,18 @@ def markdown(text):
             flush()
             i += 1
             continue
+        f = re.match(r"^```\s*(\w*)\s*$", line)
+        if f:
+            flush()
+            i += 1
+            code = []
+            while i < len(lines) and not lines[i].startswith("```"):
+                code.append(lines[i])
+                i += 1
+            i += 1
+            cls = f' class="language-{f.group(1)}"' if f.group(1) else ""
+            out.append(f"<pre><code{cls}>" + html.escape("\n".join(code)) + "</code></pre>")
+            continue
         h = re.match(r"^(#{2,4})\s+(.*)$", line)
         if h:
             flush()
