@@ -7,7 +7,6 @@
             const thumb = wrap.querySelector('.preview-thumb');
             const video = wrap.querySelector('.preview-video');
             if (!thumb || !video) return;
-            thumb.style.display = 'none';
             video.style.display = 'block';
             video.currentTime = 0;
             // Leave the frame up if autoplay is refused; snapping back reads as broken.
@@ -21,13 +20,14 @@
             if (!thumb || !video) return;
             video.pause();
             video.style.display = 'none';
-            thumb.style.display = 'block';
         }
 
         if (window.matchMedia('(hover: hover)').matches) {
+            // Whole card is the hover target, link buttons included.
             wraps.forEach(wrap => {
-                wrap.addEventListener('mouseenter', () => showVideo(wrap));
-                wrap.addEventListener('mouseleave', () => showThumb(wrap));
+                const card = wrap.closest('.item') || wrap;
+                card.addEventListener('mouseenter', () => showVideo(wrap));
+                card.addEventListener('mouseleave', () => showThumb(wrap));
             });
             return;
         }

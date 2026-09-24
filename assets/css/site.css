@@ -542,6 +542,15 @@
             /* kill phantom gap under img */
         }
 
+        /* Video overlays the thumbnail; card never resizes */
+        .carousel .thumb-wrap .preview-video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
         .platform-badges {
             position: absolute;
             bottom: 6px;
@@ -1089,5 +1098,39 @@
 @media (max-width: 520px) {
     .devlog-list--grid {
         grid-template-columns: 1fr;
+    }
+}
+
+/* ── Card layout: edge-to-edge thumbnail, title below ────────────────── */
+.carousel .item {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.carousel .item > .hover-container {
+    order: -1;
+    width: calc(100% + 40px);
+    margin: -20px -20px 14px;
+}
+
+.carousel .item .thumb-wrap {
+    width: 100%;
+}
+
+.carousel .item .game-thumbnail,
+.carousel .item .preview-video {
+    max-width: none;
+    border-radius: 0 !important;
+}
+
+.carousel .item > h3 {
+    margin: 0 0 4px;
+}
+
+@media (max-width: 768px) {
+    .carousel .item > .hover-container {
+        width: calc(100% + 24px);
+        margin: -12px -12px 10px;
     }
 }
