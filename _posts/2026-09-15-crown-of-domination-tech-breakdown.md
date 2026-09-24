@@ -29,10 +29,10 @@ The shipped game is 4v4, capped at 8 players, with a PvE mode that fills the Red
 
 **Tools Used:**
 
-1. Unity 6
-2. Photon Fusion 2 - Using Host/Client Mode
-3. Adobe Photoshop for designing player sprites and icons
-4. Environment assets were sourced from a copyright-free sprite pack.
+- Unity 6
+- Photon Fusion 2 - Using Host/Client Mode
+- Adobe Photoshop for designing player sprites and icons
+- Environment assets were sourced from a copyright-free sprite pack.
 
 ```
 NetworkManager - session: runner, runner callbacks, input struct
@@ -45,27 +45,27 @@ ScoreManager - resource ticks and win condition (scene object)
 CaptureZone - per-zone capture progress (scene object)
 ```
 
-**NetworkManager** and **LobbyState** persist across the scene load, since the session and the lobby data both have to outlive the menu. Everything else either spawns into the Gameplay scene or already sits in it, and dies when the scene unloads.
+`NetworkManager` and `LobbyState` persist across the scene load, since the session and the lobby data both have to outlive the menu. Everything else either spawns into the Gameplay scene or already sits in it, and dies when the scene unloads.
 
-## How power actually works
+## HOW POWER WORKS
 
-A King is the apex rank, with a set of permissions the network enforces. The King is the only player who can change his faction's roles into Soldiers or Pawns, and **each role carries its own capabilities**: who can block, who can mine, who moves slower, and who deals less damage. So the King decides what his own teammates play as throughout the game, and can change them at any time.
+A King is the apex rank, with a set of permissions the network enforces. The King is the only player who can change his faction's roles into Soldiers or Pawns, and **each role carries its own capabilities:** who can block, who can mine, who moves slower, and who deals less damage. So the King decides what his own teammates play as throughout the game, and can change them at any time.
 
 **The King cannot be removed by his own subjects.** Friendly fire is a toggle the King controls, and even when it is on, subjects can damage each other but never the King.
 
 The crown only drops when the enemy kills him. An ally who reaches it first becomes King with no vote, and an enemy who reaches it first can carry it home for 333 resources, a fifth of the win condition, and force your faction into an emergency revote. **The Legitimacy Meter** at the end of this post is my answer to that asymmetry.
 
-Orders are the primary function of the King; however, I have not yet built a mechanic for punishments if a subject refuses the order. A King can tell a Soldier to defend and **nothing in code makes them**. The only leverage a King has over someone who refuses is demotion, and demoting your own Soldier to a Pawn is the current level of punishment, or strategy.
+Orders are the primary function of the King; however, I have not yet built a mechanic for punishments if a subject refuses the order. A King can tell a Soldier to defend and nothing in code makes them. The only leverage a King has over someone who refuses is demotion, and demoting your own Soldier to a Pawn is the current level of punishment, or strategy.
 
-## Why Host mode and not Shared mode
+## HOST/CLIENT MODE
 
-Here is what the network has to settle.
+Here is what the network has to settle using Host/Client network mode instead of Shared mode.
 
 **Election:** Every player in a faction votes for someone on their own team. The most voted player becomes King. A tie clears the votes and forces a revote instead of picking someone arbitrarily.
 
 **Roles:** The King assigns Soldier or Pawn, with 1 to 3 Soldiers and 0 to 2 Pawns per faction. Soldiers are the only role that can block; Pawns deal 70% damage but are the only role that can mine gold; and one difference in their stats is that Kings move slower.
 
-**Requests and orders:** A subject can ask their King for a specific role, and the King grants it or ignores it. The King can issue Attack, Defend, Patrol or Retreat, which pops up on that player's screen as a notification panel.
+**Requests and orders:** A subject can ask their King for a specific role, and the King grants it or ignores it. **The King can issue Attack, Defend, Patrol or Retreat**, which pops up on that player's screen as a notification panel.
 
 **Domination:** The King can seize direct control of an ally's body. The subject stops controlling their own character, the King's own body goes inert where it stands, and the King plays as that player until they release them or one of the two dies.
 
@@ -73,7 +73,7 @@ Here is what the network has to settle.
 
 ![Blue Kingdom capturing a zone](/assets/devlogs/crown-of-domination/capture-zones.png)
 
-**Every entry on that list is one player making a claim about another player.**
+Every entry on that list is one player making a claim about another player.
 
 **In Shared mode**, "I picked up your crown" gets evaluated by the client who owns the crown, which means the game asks a player's machine to agree it was robbed.
 
@@ -92,7 +92,7 @@ The cost is that the host has an advantage in reaction time, since their inputs 
 
 **Host migration** would prevent that. Fusion raises a callback carrying a token, the game restarts the runner on one of the remaining clients, and the session resumes with player positions, roles and resource totals intact. Every networked value has to be reconstructable on a machine that never held state authority, which is a choice you make before writing the game logic. I did not build it because I lacked the knowledge at the time, and by the time I had it, it was too late.
 
-## Input is a struct
+## INPUT STRUCT
 
 Clients never tell the host what they did. **They tell the host what buttons are down**, and the host reads the values from NetworkInputData.
 
@@ -111,7 +111,7 @@ That is the entire network input for the game: movement, attack, block, sprint, 
 
 `aimWorld` is the point in the game world the mouse is pointing at. I convert the mouse position into world coordinates on the client before sending it, because every player's camera is somewhere different, so the same pixel on two screens is two different places in the level.
 
-Mouse clicks are read in `Update`, which runs once per rendered frame, but input is only sent to the host on the network tick. **A click that starts and ends between two ticks would never reach the host at all.**
+Mouse clicks are read in `Update`, which runs once per rendered frame, but input is only sent to the host on the network tick. A click that starts and ends between two ticks would never reach the host at all.
 
 So a click sets a flag on the player, and the next time input is sent, that flag is read once and cleared:
 
@@ -127,11 +127,11 @@ public bool ConsumeQueuedAttack(out Vector2 aimWorld)
 
 That way a click is never lost and never sent twice to the host.
 
-## Attacking without waiting for the host
+## ATTACK WITHOUT WAITING FOR THE HOST
 
-An RPC-based attack costs you a round trip before your own character moves, which at 80ms ping is **160ms of nothing happening** after you click.
+An RPC-based attack costs you a round trip before your own character moves, which at 80ms ping is 160ms of nothing happening after you click.
 
-The attack instead runs inside `FixedUpdateNetwork,` which means Fusion predicts it locally and resimulates it when the authoritative state arrives. **Your own swing starts on the frame you click.**
+The attack instead runs inside `FixedUpdateNetwork,` which means Fusion predicts it locally and resimulates it when the authoritative state arrives. Your own swing starts on the frame you click.
 
 ```csharp
 if (data.attack && !data.block && NextAttackTimer.ExpiredOrNotRunning(Runner))
@@ -152,25 +152,23 @@ QueuedAttackAim = aimWorld;
 
 and damage resolves 0.1 seconds later, on the frame where the animation actually syncs. Because the delay is a `TickTimer` and the aim is `[Networked]`, the hit resolves once per swing instead of firing again on every rollback.
 
-The damage block itself is wrapped in `if (HasStateAuthority)`, so **the client predicts the animation and the host decides the outcome**.
+The damage block itself is wrapped in `if (HasStateAuthority)`, so the client predicts the animation and the host decides the outcome.
 
 ![Blue King sprite](/assets/devlogs/crown-of-domination/king-blue.png) ![Red King sprite](/assets/devlogs/crown-of-domination/king-red.png)
 
-## Player
+## PLAYER
 
 `Player.cs` is the biggest script in the project and it holds everything about a character at once. Its networked state covers health, faction, role, name, facing direction, gold, whether they are dead, blocking, mining, carrying the enemy crown, and whether a King is currently driving their body.
 
-**Every one of those values has a render callback attached**, so when the host changes one, each client redraws the matching visual on its own: the sprite color, the weapon sprite, the crown, the health bar, the name label, the minimap dot.
+Every one of those values has a render callback attached, so when the host changes one, each client redraws the matching visual on its own: the sprite colour, the weapon sprite, the crown, the health bar, the name label, the minimap dot.
 
-Movement and collision are in the same script and **do not use Unity's 2D physics**. The player moves each tick directly, then steps back out of anything it overlaps by the depth of that overlap. No speed or momentum is stored anywhere, so replaying a tick five times ends in the same place every time, while velocity-based movement drifts apart between host and client because the physics solver does not rewind alongside the simulation.
+Movement and collision are in the same script and **do not use Unity's 2D physics**. The player moves each tick directly, then steps back out of anything it overlaps by the depth of that overlap. No speed or momentum is stored anywhere, so replaying a tick five times ends in the same place every time, while velocity-based movement drifts apart between host and client because the physics solver does not rewind alongside the simulation. The trade is no bounce, no friction and no physics materials, which is fine when collision only means not walking through walls or each other.
 
-The trade is no bounce, no friction and no physics materials, which is fine when collision only means not walking through walls or each other.
-
-**`Player.cs` does three unrelated jobs:** the networked data, the visuals, and the movement and combat. It should be a Combat component holding the attack timers, the damage numbers and the block logic, a PlayerVisuals component holding every sprite, the health bar and the minimap dot and doing nothing except reacting when a value changes, and a smaller Player holding the networked state and nothing else.
+`Player.cs` does three unrelated jobs: the networked data, the visuals, and the movement and combat. It should be a Combat component holding the attack timers, the damage numbers and the block logic; a PlayerVisuals component holding every sprite, the health bar and the minimap dot and doing nothing except reacting when a value changes; and a smaller Player holding the networked state and nothing else.
 
 All three sit on the same GameObject, so every networked property keeps the same owner and nothing about replication changes.
 
-## The host counts the votes
+## THE HOST COUNTS THE VOTES
 
 Votes live in a networked dictionary:
 
@@ -183,21 +181,21 @@ When you press a vote button, **your client sends the vote to the host**, which 
 
 Once the whole faction has voted, the host counts them. A tie for first clears that faction's votes and runs the vote again, otherwise the winner becomes King and everyone else becomes a Pawn.
 
-## Enemy AI
+## ENEMY AI
 
-PvE fills Red with bots, and **a bot is the same `Player` prefab spawned with no input authority**. `BotController` runs all of them on the host inside one `FixedUpdateNetwork`, writing the properties a human's input would drive: `MyRole`, `IsBlocking`, `IsMining`, position, health. Bots inherit role speeds, crown drops and death handling with no separate code path.
+PvE fills Red with bots, and **a bot is the same `Player` prefab** spawned with no input authority. `BotController` runs all of them on the host inside one `FixedUpdateNetwork`, writing the properties a human's input would drive: `MyRole`, `IsBlocking`, `IsMining`, position, health. Bots inherit role speeds, crown drops and death handling with no separate code path.
 
-**Behavior branches on role.** Soldiers chase the nearest enemy within 15 units, or take the nearest capture zone the faction does not already hold. Pawns only fight if an enemy is close; otherwise they mine and fund the resource race. Kings run while they still have subjects and fight when no allies remain.
+Behaviour branches on role. Soldiers chase the nearest enemy within 15 units, or take the nearest capture zone the faction does not already hold. Pawns only fight if an enemy is close; otherwise they mine and fund the resource race. Kings run while they still have subjects and fight when no allies remain.
 
-Bots don't walk straight at their target. My first version re-picked a way around obstacles every frame, which left two bots grinding against the same wall forever, so now a bot that moves less than 0.1 units in half a second **commits to one strafe side for 0.6 seconds**.
+Bots don't walk straight at their target. My first version re-picked a way around obstacles every frame, which left two bots grinding against the same wall forever, so now a bot that moves less than 0.1 units in half a second commits to one strafe side for 0.6 seconds.
 
 PvE always spawns four bots, so testing solo or with one friend means a full Red team beats you.
 
-A 45-second delayed start and a flaw in the bot's attack reaction are currently the only advantages for real players: a player who hits and backs out of range is gone before the bot's delayed damage step re-checks distance, so **hit-and-run beats them reliably**. I left the hole in because it is the only thing making them beatable at low player counts.
+A 45-second delayed start and a flaw in the bot's attack reaction are currently the only advantages for real players: a player who hits and backs out of range is gone before the bot's delayed damage step re-checks distance, so hit-and-run beats them reliably. I left the hole in because it is the only thing making them beatable at low player counts.
 
-## What I would do differently
+## WHAT I WOULD DO DIFFERENTLY
 
-**Bot allies**
+### Bot allies
 
 The game is only 4v4 right now, which isn't small even for PvE mode, since a full game still needs 4 people on your side. The main issue is this game is fun only when you scale the player count, and I should have paid more attention to bot allies too. They would immediately solve the cold start problem while letting me test solo and scale the PvP to 8v8, 16v16 without needing that many real players in the room.
 
@@ -205,15 +203,15 @@ Instead, I made the lobby size adjustable, so even though the game mode is 4v4, 
 
 ![Red Soldier sprite with shield](/assets/devlogs/crown-of-domination/soldier-red.png)
 
-**Roles that did not ship**
+### Roles that were not implemented
 
 Other scope creep I had to manage was the Servant role, a political branch that works as a minister to the King. The role is still in the code, but a 4-player kingdom didn't require this management hierarchy, so in practice it's King, Soldiers and Pawns.
 
-There were also going to be subclasses where Soldiers equip different styles, Strength, Agility and Power to strategize and give autonomy to lesser ranks that gave diverse attributes and prestige for the combat system. Pawns, on the other hand, could have crafted fortifications, farmed, and used Militia mode to defend themselves, but none of these made it into the game.
+There were also going to be subclasses where Soldiers equip different styles: Strength, Agility and Power to strategize and give autonomy to lesser ranks that gave diverse attributes and prestige for the combat system. Pawns, on the other hand, could have crafted fortifications, farmed, and used Militia mode to defend themselves, but none of these made it into the game.
 
 ![Subject profile panel showing rank and unfinished class slots](/assets/devlogs/crown-of-domination/profile-subject.png)
 
-**Prioritize the Legitimacy system idea I had**
+### Prioritize the Legitimacy system idea I had
 
 My most important design decision was planning a **Legitimacy Meter** System that would have changed the King's unstoppable rule and given subjects more autonomy and free will over the King. The King would lose legitimacy by abusing their authority, ignoring their subjects, or making unpopular decisions, while maintaining it through effective leadership and cooperation. Players could demote the King's legitimacy and then watch the King lose power over time, or approve his rule and give him an iron fist that would empower the King and reinforce their faction to become more coordinated over the map.
 
@@ -221,19 +219,19 @@ Below is a snapshot of how a Legitimacy meter would work: start at 50%, and fluc
 
 ![King profile panel showing Legitimacy at 50 out of 100](/assets/devlogs/crown-of-domination/legitimacy-meter.png)
 
-**Code**
+### Code
 
-**NetworkManager.cs** is the script I would change the most. When a player creates a game, it generates a 3-digit join code, creates a GameObject called SessionRunner, attaches a NetworkRunner, and starts the session using the join code as the session name. When a player joins a game, it builds a runner the same way and connects to the session matching the code they typed in. It implements **INetworkRunnerCallbacks**, so the runner calls into it when a player joins or leaves and when a scene finishes loading, and asks it for input every tick, which it fills from the keyboard and mouse.
+`NetworkManager.cs` is the script I would change the most. When a player creates a game, it generates a 3-digit join code, creates a GameObject called SessionRunner, attaches a NetworkRunner, and starts the session using the join code as the session name. When a player joins a game, it builds a runner the same way and connects to the session matching the code they typed in. It implements `INetworkRunnerCallbacks`, so the runner calls into it when a player joins or leaves and when a scene finishes loading, and asks it for input every tick, which it fills from the keyboard and mouse.
 
 It also stores twelve references to main menu objects: the Create Game and Join Game buttons, the ready and cancel buttons, the join code field and its label, the name and lobby size fields, the PvP and PvE toggles, the settings blocker, and the lobby roster text it rewrites every frame.
 
-The runner must survive MainMenu into Gameplay and back, so NetworkManager is `DontDestroyOnLoad`, but its menu references die with MainMenu, and a copy of NetworkManager sits in MainMenu as well. Every return loads a second copy: one holds live Inspector references and no session, the other holds the runner and null buttons, so **after a single disconnect you cannot create a game again**.
+The runner must survive MainMenu into Gameplay and back, so NetworkManager is `DontDestroyOnLoad`, but its menu references die with MainMenu, and a copy of NetworkManager sits in MainMenu as well. Every return loads a second copy: one holds live Inspector references and no session, the other holds the runner and null buttons, so **after a single disconnect you cannot create a game again.**
 
 I first tried re-finding the buttons by their GameObject names on every menu load, which breaks the moment anyone renames one. In the current build the old copy passes the runner, the lobby and the join code to the new copy, then destroys itself.
 
-**It should have been a session object created in code at runtime**, living in no scene so Unity has nothing to duplicate, plus a LobbyUI script in the menu scene holding the Inspector references and receiving the button UnityEvents, which is the only reason the manager was in the scene at all. But it turns out a scene can find one persistent object easily, while one persistent object cannot find twelve scene objects rebuilt on every load.
+It should have been a session object created in code at runtime, living in no scene so Unity has nothing to duplicate, plus a LobbyUI script in the menu scene holding the Inspector references and receiving the button UnityEvents, which is the only reason the manager was in the scene at all. But it turns out a scene can find one persistent object easily, while one persistent object cannot find twelve scene objects rebuilt on every load.
 
-Respawn uses `WaitForSeconds(30f)`. That is wall clock time inside a tick based simulation. It should be a `TickTimer` like every other timer in the project.
+Respawn uses `WaitForSeconds(30f)`. That is wall clock time inside a tick-based simulation. It should be `TickTimer` like every other timer in the project.
 
 In conclusion, **Crown of Domination** had about four months of development, and its strongest features are still not implemented. I have a lot left to learn about networking and coding, despite everything I got working so far.
 

@@ -925,6 +925,15 @@
     text-align: center;
 }
 
+.post-body iframe {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    border: 0;
+    border-radius: 8px;
+}
+
 .post-body pre {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
