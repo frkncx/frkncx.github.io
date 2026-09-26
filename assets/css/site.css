@@ -349,6 +349,7 @@
 
         .tech-link::after {
             content: "";
+            flex-shrink: 0;
             width: 7px;
             height: 7px;
             border-top: 2px solid currentColor;
