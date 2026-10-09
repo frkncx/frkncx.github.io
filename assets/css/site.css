@@ -20,32 +20,64 @@
         header {
             background: #000;
             color: white;
-            padding: 20px;
-            font-size: 1.2em;
             text-align: center;
             position: relative;
         }
 
-        header::before {
+        /* Studio bar: brand left, nav right */
+        .studio-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            padding: 14px 28px;
+            border-bottom: 1px solid #222;
+        }
+
+        .studio-brand {
+            color: #fff;
+            font-weight: bold;
+            letter-spacing: 0.12em;
+            font-size: 1.05em;
+            text-decoration: none;
+        }
+
+        .studio-bar nav {
+            gap: 24px;
+        }
+
+        /* Banner hero with glowing name */
+        .header-hero {
+            position: relative;
+            padding: 90px 20px;
+        }
+
+        .header-hero::before {
             content: "";
             position: absolute;
             inset: 0;
             background: url('/Banner.png') center center / cover no-repeat;
-            opacity: 0.5;
-            z-index: 1;
+            opacity: 0.85;
         }
 
-        header>* {
+        .header-hero>* {
             position: relative;
-            z-index: 1;
         }
 
-        .header-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            position: relative;
+        .header-hero h1 {
+            margin: 0 0 8px;
+            font-size: clamp(2em, 6vw, 3.6em);
+            font-weight: 900;
+            letter-spacing: 0.06em;
+            text-shadow: 0 0 24px rgba(58, 58, 255, 0.9);
+        }
+
+        .header-role {
+            font-family: 'Merriweather', serif;
+            color: #ccc;
+            margin: 0;
+            font-size: 1.05em;
         }
 
         .logo {
@@ -66,11 +98,6 @@
             display: none;
             height: 60px;
             margin-bottom: 10px;
-        }
-
-        .center-content {
-            text-align: center;
-            width: 100%;
         }
 
         .zoom-hover {
@@ -631,6 +658,24 @@
                 align-items: center;
                 gap: 12px;
                 margin-top: 12px;
+            }
+
+            /* Menu opens full width under bar */
+            .studio-bar {
+                padding: 12px 16px;
+            }
+
+            .studio-bar nav {
+                width: 100%;
+                gap: 12px;
+            }
+
+            .studio-bar .nav-toggle {
+                margin: 0;
+            }
+
+            .header-hero {
+                padding: 60px 16px;
             }
 
             nav.nav-open {
