@@ -1,5 +1,5 @@
 ---
-title: "In Building Erebus"
+title: "In Building Erebus (Now Bloodstream)"
 date: 2026-08-02
 project: Erebus
 topic: Unity Devlogs

@@ -1,5 +1,5 @@
 ---
-title: "Realms of Uldar - Post Mortem"
+title: "Realms of Uldar: Post Mortem"
 date: 2026-05-24
 project: "Realms of Uldar: Void Crystal"
 topic: Unity Devlogs
