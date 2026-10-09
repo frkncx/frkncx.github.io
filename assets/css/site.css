@@ -26,7 +26,6 @@
         }
 
         header {
-            background: #000;
             color: white;
             text-align: center;
             position: relative;
@@ -41,6 +40,7 @@
             gap: 16px;
             padding: 14px 28px;
             border-bottom: 1px solid #222;
+            background: #000;
         }
 
         .studio-brand {
@@ -67,6 +67,9 @@
             inset: 0;
             background: url('/Banner.png') center center / cover no-repeat;
             opacity: 0.85;
+            /* Fade bottom into page starfield */
+            -webkit-mask-image: linear-gradient(to bottom, #000 60%, transparent);
+            mask-image: linear-gradient(to bottom, #000 60%, transparent);
         }
 
         .header-hero>* {
