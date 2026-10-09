@@ -17,6 +17,14 @@
             /* ensures padding/margin/border don't add extra width */
         }
 
+        /* Scrolling starfield, matches itch page */
+        body.space-bg {
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                url('/ItchPageBG1.png') center top / max(125vw, 1600px) auto repeat-y,
+                #000;
+        }
+
         header {
             background: #000;
             color: white;
