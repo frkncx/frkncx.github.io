@@ -15,7 +15,7 @@ import webbrowser
 
 ROOT = pathlib.Path(__file__).parent
 PORT = 4000
-WATCH = ["index.html", "devlogs", "_layouts", "_includes", "_posts", "assets", "_config.yml"]
+WATCH = ["index.html", "devlogs", "projects", "about", "contact", "_layouts", "_includes", "_posts", "assets", "_config.yml"]
 
 RELOAD_JS = """
 <script>
@@ -367,8 +367,8 @@ def build(path):
     site, includes, layouts = load()
     if path in ("/", "/index.html"):
         src, url = ROOT / "index.html", "/"
-    elif path == "/devlogs/":
-        src, url = ROOT / "devlogs" / "index.html", "/devlogs/"
+    elif path in ("/devlogs/", "/projects/", "/about/", "/contact/"):
+        src, url = ROOT / path.strip("/") / "index.html", path
     else:
         slug = path.strip("/").split("/")[-1]
         for p in site["posts"]:

@@ -1,5 +1,6 @@
+        /* clip, not hidden, keeps sticky bar working */
         html {
-            overflow-x: hidden;
+            overflow-x: clip;
         }
 
         body {
@@ -7,7 +8,7 @@
             font-family: 'Orbitron', sans-serif;
             background: linear-gradient(145deg, #0f0f0f, #1a1a1a);
             color: #eee;
-            overflow-x: hidden;
+            overflow-x: clip;
             box-sizing: border-box;
             cursor: url("/CustomCursor.png"), auto;
         }
@@ -1199,4 +1200,179 @@
         width: calc(100% + 24px);
         margin: -12px -12px 10px;
     }
+}
+
+/* ── Sticky studio bar ───────────────────────────────────────────────── */
+header {
+    display: contents;
+}
+
+.studio-bar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+section[id] {
+    scroll-margin-top: 70px;
+}
+
+/* Join Email List nav button */
+.nav-item > a.nav-list {
+    padding: 5px 12px;
+    font-size: 0.85em;
+}
+
+.nav-item > a.nav-list:hover {
+    color: #1a1a1a;
+}
+
+.nav-item > a.nav-list::after {
+    display: none;
+}
+
+/* ── Flagship: alternating image and text rows ───────────────────────── */
+#ultimatum .carousel {
+    grid-template-columns: 1fr;
+    max-width: 1100px;
+    gap: 44px;
+}
+
+#ultimatum .carousel .item {
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    gap: 34px;
+    align-items: center;
+    background: none;
+    padding: 0;
+    overflow: visible;
+    text-align: left;
+}
+
+#ultimatum .carousel .item:nth-child(even) {
+    grid-template-columns: 1fr 1.25fr;
+}
+
+#ultimatum .carousel .item:nth-child(even) > .hover-container {
+    order: 2;
+}
+
+#ultimatum .carousel .item > .hover-container {
+    width: 100%;
+    margin: 0;
+}
+
+#ultimatum .carousel .item .game-thumbnail {
+    border-radius: 16px !important;
+    box-shadow: 0 0 40px rgba(58, 58, 255, 0.25);
+}
+
+#ultimatum .carousel .item .preview-video {
+    border-radius: 16px !important;
+}
+
+#ultimatum .item-text > * {
+    text-align: left;
+}
+
+#ultimatum .item-text > h3 {
+    margin: 0 0 4px;
+}
+
+#ultimatum .item-text > p {
+    max-width: none !important;
+}
+
+#ultimatum .item-text .tech-link {
+    margin: 0;
+}
+
+.see-all {
+    max-width: 300px;
+    margin: 10px auto 0;
+}
+
+/* Other groups: three columns */
+.project-subsection:not(#ultimatum) .carousel {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-width: 1100px;
+}
+
+@media (max-width: 800px) {
+    #ultimatum .carousel .item,
+    #ultimatum .carousel .item:nth-child(even) {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    #ultimatum .carousel .item:nth-child(even) > .hover-container {
+        order: 0;
+    }
+
+    .project-subsection:not(#ultimatum) .carousel {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 560px) {
+    .project-subsection:not(#ultimatum) .carousel {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── Back to top ─────────────────────────────────────────────────────── */
+.to-top {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    z-index: 1000;
+    width: auto;
+    max-width: none;
+    margin: 0;
+    flex-direction: row-reverse;
+    font-family: 'Orbitron', sans-serif;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s, background 0.2s, color 0.2s;
+}
+
+.to-top::after {
+    transform: translateY(2px) rotate(-45deg);
+}
+
+.to-top.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* ── Contact page social buttons ─────────────────────────────────────── */
+.social-row {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 18px 0 10px;
+}
+
+.social-row a {
+    width: 46px;
+    height: 46px;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+}
+
+.social-row a::after {
+    display: none;
+}
+
+.social-row img {
+    width: 22px;
+    height: 22px;
+    filter: invert(1);
+    transition: filter 0.2s;
+}
+
+.social-row a:hover img,
+.social-row a:focus-visible img {
+    filter: none;
 }

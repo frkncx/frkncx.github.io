@@ -207,3 +207,18 @@
 
     render();
 })();
+
+// ── Back to top button ────────────────────────────────────────────────────
+(function () {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'tech-link to-top';
+    btn.textContent = 'Top';
+    btn.setAttribute('aria-label', 'Back to top');
+    document.body.append(btn);
+
+    const update = () => btn.classList.toggle('show', scrollY > innerHeight);
+    addEventListener('scroll', update, { passive: true });
+    update();
+    btn.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
+})();
