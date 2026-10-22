@@ -222,3 +222,22 @@
     update();
     btn.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
 })();
+
+// ── Light / dark theme toggle ─────────────────────────────────────────────
+(function () {
+    const btn = document.getElementById('themeToggle');
+    if (!btn) return;
+    const root = document.documentElement;
+
+    const sync = () => btn.setAttribute('aria-label',
+        root.dataset.theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
+    sync();
+
+    btn.addEventListener('click', () => {
+        const light = root.dataset.theme !== 'light';
+        if (light) root.dataset.theme = 'light';
+        else delete root.dataset.theme;
+        try { localStorage.setItem('theme', light ? 'light' : 'dark'); } catch (e) {}
+        sync();
+    });
+})();

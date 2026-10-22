@@ -29,6 +29,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script>
+        // Apply saved theme before paint
+        try { if (localStorage.getItem('theme') === 'light') document.documentElement.dataset.theme = 'light'; } catch (e) {}
+    </script>
     <link rel="stylesheet" href="/assets/css/site.css">
 </head>
 

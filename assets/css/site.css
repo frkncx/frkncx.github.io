@@ -1376,3 +1376,255 @@ section[id] {
 .social-row a:focus-visible img {
     filter: none;
 }
+
+/* ── Theme toggle ────────────────────────────────────────────────────── */
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    background: transparent;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    color: #e8e8e8;
+    order: 2;
+}
+
+.theme-toggle svg {
+    width: 18px;
+    height: 18px;
+}
+
+.theme-toggle .icon-sun,
+[data-theme="light"] .theme-toggle .icon-moon {
+    display: none;
+}
+
+[data-theme="light"] .theme-toggle .icon-sun {
+    display: block;
+}
+
+.studio-brand {
+    margin-right: auto;
+}
+
+.studio-bar nav {
+    order: 1;
+}
+
+@media (max-width: 768px) {
+    .theme-toggle {
+        order: 1;
+    }
+
+    .studio-bar .nav-toggle {
+        order: 2;
+    }
+
+    .studio-bar nav {
+        order: 3;
+    }
+}
+
+/* ── Light theme ─────────────────────────────────────────────────────── */
+[data-theme="light"] body,
+[data-theme="light"] body.space-bg {
+    color: #1a1a1a;
+    background: linear-gradient(180deg, #e9edf8 0%, #f6f4fa 50%, #eef1f8 100%);
+}
+
+/* Studio bar */
+[data-theme="light"] .studio-bar {
+    background: #fff;
+    border-bottom-color: #e2e2e2;
+}
+
+[data-theme="light"] .studio-brand,
+[data-theme="light"] .studio-bar nav a {
+    color: #1a1a1a;
+}
+
+[data-theme="light"] .theme-toggle,
+[data-theme="light"] .nav-toggle {
+    color: #1a1a1a;
+    border-color: #1a1a1a;
+}
+
+/* Hero keeps the dark banner */
+[data-theme="light"] .header-hero {
+    background: #05050f;
+}
+
+[data-theme="light"] .header-hero::before {
+    -webkit-mask-image: none;
+    mask-image: none;
+}
+
+/* Intro panel */
+[data-theme="light"] .top-section {
+    background: #fff;
+    color: #1a1a1a;
+    box-shadow: 0 1px 0 #e2e2e2;
+}
+
+[data-theme="light"] .contact-info-top img {
+    filter: none;
+}
+
+/* Cards and headings */
+[data-theme="light"] .carousel .item {
+    background: #fff;
+    color: #1a1a1a;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] #ultimatum .carousel .item {
+    background: none;
+    box-shadow: none;
+}
+
+[data-theme="light"] .item p {
+    color: #444;
+}
+
+[data-theme="light"] .project-meta,
+[data-theme="light"] .devlog-meta,
+[data-theme="light"] .post-footer {
+    color: #6a6a6a;
+}
+
+[data-theme="light"] .project-subsection h3,
+[data-theme="light"] .aboutme-subsection h3,
+[data-theme="light"] .skills-category {
+    color: #1a1a1a;
+}
+
+[data-theme="light"] .devlog-card {
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .devlog-topic {
+    color: #444;
+    background: #fff;
+    border-color: #dcdcdc;
+}
+
+/* Outlined buttons flip */
+[data-theme="light"] .tech-link,
+[data-theme="light"] .back-link,
+[data-theme="light"] .devlog-pager button {
+    background: #fff;
+    color: #1a1a1a;
+    border-color: #1a1a1a;
+}
+
+[data-theme="light"] .tech-link:hover,
+[data-theme="light"] .tech-link:focus-visible,
+[data-theme="light"] .back-link:hover,
+[data-theme="light"] .devlog-pager button:hover:not(:disabled),
+[data-theme="light"] .devlog-pager button[aria-current="true"] {
+    background: #1a1a1a;
+    color: #fff;
+}
+
+[data-theme="light"] .devlog-more {
+    color: #1a1a1a;
+}
+
+[data-theme="light"] .social-row img {
+    filter: none;
+}
+
+[data-theme="light"] .social-row a:hover img {
+    filter: invert(1);
+}
+
+/* About */
+[data-theme="light"] .skill-chip {
+    background: #fff;
+    border-color: #dcdcdc;
+    color: #333;
+}
+
+[data-theme="light"] .skill-chip img {
+    filter: none;
+}
+
+[data-theme="light"] .about-block ul {
+    color: #444 !important;
+}
+
+[data-theme="light"] .about-block a,
+[data-theme="light"] .aboutme-section a,
+[data-theme="light"] .post-body a,
+[data-theme="light"] .post-footer a {
+    color: #0b6e99 !important;
+}
+
+/* Form */
+[data-theme="light"] .contact-section input,
+[data-theme="light"] .contact-section textarea {
+    background: #fff;
+    border-color: #cfcfcf;
+    color: #1a1a1a;
+}
+
+/* Posts */
+[data-theme="light"] .post-body {
+    color: #333;
+}
+
+[data-theme="light"] .post-body h2,
+[data-theme="light"] .post-body h3,
+[data-theme="light"] .post-body strong {
+    color: #1a1a1a;
+}
+
+[data-theme="light"] .post-body code {
+    background: rgba(0, 0, 0, 0.06);
+    color: #1a1a1a;
+}
+
+[data-theme="light"] .post-body pre {
+    background: rgba(0, 0, 0, 0.04);
+}
+
+/* Footer */
+[data-theme="light"] footer {
+    background: #fff;
+    color: #1a1a1a;
+    border-top: 1px solid #e2e2e2;
+}
+
+[data-theme="light"] .social-icons a img {
+    filter: none;
+}
+
+[data-theme="light"] .devlog-card p {
+    color: #444;
+}
+
+/* Keep toggle on the bar's row */
+@media (min-width: 769px) {
+    .studio-bar {
+        flex-wrap: nowrap;
+    }
+
+    .studio-bar nav {
+        justify-content: flex-end;
+        min-width: 0;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1000px) {
+    .studio-bar {
+        padding: 14px 20px;
+    }
+
+    .studio-bar nav {
+        gap: 14px;
+    }
+}
