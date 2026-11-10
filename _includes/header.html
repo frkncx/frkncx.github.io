@@ -8,6 +8,9 @@
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰ Menu</button>
             <nav id="mainNav">
                 <div class="nav-item">
+                    <a href="/">Home</a>
+                </div>
+                <div class="nav-item">
                     <a href="/projects/">Projects</a>
                 </div>
                 <div class="nav-item">
@@ -22,12 +25,17 @@
                 <div class="nav-item">
                     <a href="/contact/">Contact</a>
                 </div>
-                <div class="nav-item">
-                    <a class="tech-link nav-list" href="https://minduniverse.subscribepage.io" target="_blank" rel="noopener">Join Email List</a>
-                </div>
             </nav>
         </div>
-        {% if page.layout != 'post' %}
+        {% if page.url == '/' %}
+        <div class="game-hero">
+            <h1>BLOODSTREAM</h1>
+            <p class="game-tagline">Microscopic Strategy Game</p>
+            <p class="game-status">On Steam soon</p>
+            <a class="tech-link" href="https://minduniverse.subscribepage.io" target="_blank" rel="noopener">Join Email List</a>
+        </div>
+        {% endif %}
+        {% if page.url == '/about/' %}
         <div class="header-hero">
             <h1>Furkan Canturk</h1>
             <p class="header-role">Unity Gameplay Systems Designer and Programmer</p>
