@@ -1660,10 +1660,12 @@ section[id] {
 }
 
 .game-status {
-    font-size: 0.85em;
+    font-size: clamp(1.1em, 2.4vw, 1.5em);
+    font-weight: 700;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: #bbb;
+    color: #fff;
+    text-shadow: 0 0 14px rgba(255, 40, 40, 0.7);
     margin: 0 0 20px;
 }
 
