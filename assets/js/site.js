@@ -57,15 +57,23 @@
         const nav = document.getElementById('mainNav');
         if (!toggle || !nav) return;
 
+        function setOpen(open) {
+            nav.classList.toggle('nav-open', open);
+            document.body.classList.toggle('menu-open', open);
+            toggle.setAttribute('aria-expanded', open);
+        }
+
         toggle.addEventListener('click', () => {
-            nav.classList.toggle('nav-open');
+            setOpen(!nav.classList.contains('nav-open'));
         });
 
         // Close menu after tapping a link
         nav.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                nav.classList.remove('nav-open');
-            });
+            link.addEventListener('click', () => setOpen(false));
+        });
+
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') setOpen(false);
         });
     })();
 
