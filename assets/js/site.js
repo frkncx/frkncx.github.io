@@ -60,6 +60,7 @@
         function setOpen(open) {
             nav.classList.toggle('nav-open', open);
             document.body.classList.toggle('menu-open', open);
+            document.documentElement.classList.toggle('menu-open', open);
             toggle.setAttribute('aria-expanded', open);
         }
 

@@ -1835,8 +1835,11 @@ section[id] {
         filter: invert(100%);
     }
 
+    /* Root must lock; html clip blocks body */
+    html.menu-open,
     body.menu-open {
         overflow: hidden;
+        overscroll-behavior: none;
     }
 
     body.menu-open .to-top {
